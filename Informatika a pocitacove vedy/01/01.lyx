@@ -1,0 +1,432 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrreprt
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Operační systém, proces, vlákno, algoritmy plánování procesů a vláken.
+ Komunikace mezi procesy a vlákny, časově závislé chyby, kritické sekce,
+ synchronizační nástroje, problém uváznutí, možnosti řešení.
+ Správa paměti.
+ Virtuální paměť - stránkování, algoritmy pro náhradu stránek, segmentace.
+ Souborové systémy, organizace dat na vnějších pamětích, principy, řešení,
+ ochrany.
+ (A4B33OSS)
+\end_layout
+
+\begin_layout Section
+Operační systém
+\end_layout
+
+\begin_layout Itemize
+zakrývá detaily hardware, aby mohly programy PC snáze ovládat (poskytuje
+ API)
+\end_layout
+
+\begin_layout Itemize
+přiděluje prostředky programům (paměť, procesor...)
+\end_layout
+
+\begin_layout Itemize
+Unixové systémy splňují standard POSIX, který sjednocuje API, systémová
+ volání jsou stejná napříč systémy (open, read, write, fork, mkdir, link...)
+\end_layout
+
+\begin_layout Section
+Proces
+\end_layout
+
+\begin_layout Itemize
+je to program označený číslem procesu PID, info o něm je uložené v registru
+ Process Control Block
+\end_layout
+
+\begin_layout Itemize
+tvoří ho obsahy registrů procesoru a uživatelských registrů, otevřené soubory,
+ použitá paměť...
+\end_layout
+
+\begin_layout Itemize
+proces je chápán jako obal vláken, vlákna jsou součástí procesu
+\end_layout
+
+\begin_layout Itemize
+procesy mohou vytvářet nové procesy - potomky - pomocí volání fork/clone.
+ V POSIX jsou všechny procesy potomkem procesu init s PID 0
+\end_layout
+
+\begin_layout Itemize
+proces se ukončí pomocí exit, nebo chybou, nebo na žádost rodiče, nebo při
+ zániku rodiče
+\end_layout
+
+\begin_layout Itemize
+proces se může odpojit od rodiče, pak se mu říká démon
+\end_layout
+
+\begin_layout Itemize
+program je seznam instrukcí
+\end_layout
+
+\begin_layout Section
+Vlákno
+\end_layout
+
+\begin_layout Itemize
+existuje v rámci procesu, často má proces jen jedno vlákno
+\end_layout
+
+\begin_layout Itemize
+zdroje jsou sdílené mezi procesem a všemi jeho vlákny
+\end_layout
+
+\begin_layout Itemize
+ukončení procesu zničí všechna jeho vlákna
+\end_layout
+
+\begin_layout Itemize
+správu vláken řeší v POSIX knihovna pthreads
+\end_layout
+
+\begin_layout Section
+Algoritmy plánování procesů a vláken
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Nepreemptivní plánování (N): 
+\series default
+Jakmile se procesu přidělí procesor, nelze mu ho vzít.
+ Používá se v uzavřených systémech, kde jsou všechny procesy 
+\begin_inset Quotes eld
+\end_inset
+
+slušné
+\begin_inset Quotes erd
+\end_inset
+
+ a pustí ostatní včas k procesoru.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Preemptivní plánování (P): 
+\series default
+Procesu schopnému běhu se procesor odebere a spustí se jiný proces
+\end_layout
+
+\begin_layout Subsection
+Různé algoritmy
+\end_layout
+
+\begin_layout Standard
+Plánování se znázorňuje Ganttovým diagramem.
+ Většinou se 
+\begin_inset Quotes eld
+\end_inset
+
+doba procesu
+\begin_inset Quotes erd
+\end_inset
+
+ musí odhadovat.
+ Je potřeba to řešit chytře, protože časté přepínání je náročné.
+ Když se vybírá proces podle priority, tak se zase může stát, že nějaký
+ proces se vůbec nedostane na řadu (stárnutí).
+\end_layout
+
+\begin_layout Itemize
+First come first serve (N): Procesy se obsluhují v pořadí, v jakém přišly.
+ Nevýhodou je, že všechny krátké procesy budou čekat, než skončí jeden dlouhý.
+\end_layout
+
+\begin_layout Itemize
+Shortest process next (N): Bere se vždy nejkratší proces.
+\end_layout
+
+\begin_layout Itemize
+Shortest remaining time (P): Pokud se objeví proces, který je kratší, než
+ zbývající doba aktuálního procesu, tak se aktuální proces přeruší a spustí
+ se nový proces.
+\end_layout
+
+\begin_layout Itemize
+Round robin (P): Všechny procesy se střídají rovným dílem
+\end_layout
+
+\begin_layout Itemize
+feedback: Procesy, které trvaly nezvykle dlouho, se při příštím běhu dá
+ horší priorita
+\end_layout
+
+\begin_layout Itemize
+RMS: Používá se v systémech, kde se procesy spouští pravidelně s různými
+ periodami.
+ Přednost se dává procesu s kratší periodou
+\end_layout
+
+\begin_layout Section
+Kritická sekce
+\end_layout
+
+\begin_layout Itemize
+úsek programu, kde se přistupuju ke sdílenému prostředku
+\end_layout
+
+\begin_layout Itemize
+pokud je v kritické sekci vždy jen jeden proces, vše je ok.
+ Když jich je víc, můžou si navzájem přepisovat sdílený prostředek (třeba
+ proměnnou), protože procesy mohou být v procesoru vyměněny v nevhodnou
+ chvíli.
+ Těsně po tom, co jeden z nich si načte sdílený prostředek k sobě, jsou
+ procesy vyměněny, a ten druhý hned potom změní sdílený prostředek, ale
+ první dál pracuje se starou hodnotou.
+\end_layout
+
+\begin_layout Subsection
+Řešení kritické sekce
+\end_layout
+
+\begin_layout Itemize
+Pomocná proměnná: Procesy označují v proměnné, jestli už do kritické sekce
+ vstoupily.
+ Pokud vidí, že v kritické sekci už nějaký proces je, tak čekají (sleep).
+ To ale jen posune kritickou sekci na tuto proměnnou, takže to nefunguje.
+\end_layout
+
+\begin_layout Itemize
+Tři pravidla
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+V kritické sekci smí být v každém okamžiku jen jeden program
+\end_layout
+
+\begin_layout Itemize
+Výběr procesu k běhu se nesmí nekonečně odkládat
+\end_layout
+
+\begin_layout Itemize
+Čekání na vstup do kritické sekce musí být omezená
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Petersonovo řešení na aplikační úrovni: Udělají se dvě pomocné proměnné.
+ Proces postupně označí obě, a pak vstoupí do kritické sekce.
+ Pokud je jedna z proměnných aktivovaná, tak čeká a neoznačuje tu druhou.
+\end_layout
+
+\begin_layout Itemize
+HW řešení: Některé procesory mají instrukci TestAndSet, kterou se čte a
+ mění pomocná proměnná.
+ Během této instrukce nejde proces přerušit.
+\end_layout
+
+\begin_layout Itemize
+Semafor: Konstrukce některých programovacích jazyků, která zajišťuje, aby
+ ke zdroji vždy přistoupil jen jeden proces.
+ Kromě semaforu se taky používá Monitor nebo SpinLock.
+\end_layout
+
+\begin_layout Section
+Deadlock
+\end_layout
+
+\begin_layout Itemize
+Máme dva procesy, každý z nich si zabere jeden ze dvou zdrojů a pak čekají,
+ než se uvolní ten druhý zdroj, tím se vzájemně zablokují.
+ Jako příklad se dává 5 večeřících filozofů, kteří sedí u kruhového stolu
+ a mají 5 talířů a 5 vidliček, ale k jídlu potřebují dvě vidličky.
+ Pokud se budou všichni filozofové chovat stejně, nikdy se nenají.
+ 
+\end_layout
+
+\begin_layout Itemize
+Deadlock se vizualizuje pomocí grafu Resource Allocation Graph (RAG).
+ Procesy a zdroje jsou vrcholy.
+ Pokud proces P čeká na zdroj Z, vede hrana z P do Z.
+ Pokud je zdroj Z zabrán procesem P, pak vede hrana ze Z do P.
+ Pokud je v grafu cyklus, tak je systém v Deadlocku
+\end_layout
+
+\begin_layout Itemize
+Bankéřův algoritmus: Dovolí spustit jen ty procesy, u kterých ví, že jim
+ za současného stavu dokáže půjčit zdroje.
+ Nevýhodou je, že předem chce vědět seznam zdrojů, které bude proces potřebovat,
+ což je ne vždy znát.
+\end_layout
+
+\begin_layout Itemize
+Deadlock nelze efektivně řešit, lze mu předcházet (Bankéř), nebo ho detekovat
+ a řešit zpětně.
+\end_layout
+
+\begin_layout Section
+Správa paměti
+\end_layout
+
+\begin_layout Itemize
+Adresy z Fyzického Adresního Prostoru (FAP) popisují konkrétní místa v paměti
+ (Fyzické adresy, FA)
+\end_layout
+
+\begin_layout Itemize
+Adresy z Logiského Adresního Prostoru (LAP) popisují adresy, se kterými
+ pracují aplikace (Logické adres, LA)
+\end_layout
+
+\begin_layout Itemize
+Adresy z LAP se překládají do FAP
+\end_layout
+
+\begin_layout Itemize
+Adresa, která má délku 32 b popisuje prostor o velikosti 2^32 = cca 4GB
+\end_layout
+
+\begin_layout Subsection
+Sementace
+\end_layout
+
+\begin_layout Itemize
+Paměť se rozdělí na víc segmentů, které mohou mít různou velikost
+\end_layout
+
+\begin_layout Itemize
+Paměť se adresuje jako číslo segmentu a pak pozice v segmentu, to se pak
+ pomocí tabulky ST převede na FA
+\end_layout
+
+\begin_layout Itemize
+Přístup do špatného segmentu vyvolá chybu segmentace (segfault)
+\end_layout
+
+\begin_layout Itemize
+Segmenty lze využít, když je paměť větší než dovoluje adresa popsat (adresa
+ je delší, než povoluje vstup do procesoru), nebo když chceme oddělit paměti
+ procesů od sebe
+\end_layout
+
+\begin_layout Subsection
+Virtualizace
+\end_layout
+
+\begin_layout Itemize
+Virtualizace se hodí, když je paměť menší než to, co by šlo popsat adresou.
+ Proto se část paměti uloží jinde
+\end_layout
+
+\begin_layout Subsection
+Stránkování
+\end_layout
+
+\begin_layout Itemize
+FAP je rozdělený na rámce stejné velikosti, a těm odpovídají stejně velké
+ stránky v LAP
+\end_layout
+
+\begin_layout Itemize
+Překlad mezi rámci a stránkami je prováděn pomocí page table (PT)
+\end_layout
+
+\begin_layout Itemize
+Adresa je určena číslem stránky p a offsetem ve stránce.
+ Překládá se jen číslo stránky na rámec, offset je stejný.
+\end_layout
+
+\begin_layout Itemize
+Aby se překlad adres zrychlil, ukládají se stránky do cache TLB
+\end_layout
+
+\begin_layout Itemize
+Když se cache naplní, tak je potřeba najít stránku, která se přesune na
+ disk, aby bylo v tabulce místo pro novou
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+First in First Out (FIFO): smažeme nejstarší stránku
+\end_layout
+
+\begin_layout Itemize
+Last Recently Used (LRU): smažeme stránku, která byla nejdéle nepoužita
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Cache může být víceúrovňová, taky se dá použít hashování
+\end_layout
+
+\end_body
+\end_document
