@@ -356,7 +356,7 @@ Adresa, která má délku 32 b popisuje prostor o velikosti 2^32 = cca 4GB
 \end_layout
 
 \begin_layout Subsection
-Sementace
+Segmentace
 \end_layout
 
 \begin_layout Itemize
@@ -426,6 +426,129 @@ Last Recently Used (LRU): smažeme stránku, která byla nejdéle nepoužita
 \end_deeper
 \begin_layout Itemize
 Cache může být víceúrovňová, taky se dá použít hashování
+\end_layout
+
+\begin_layout Section
+Souborový systém
+\end_layout
+
+\begin_layout Itemize
+Soubor je pojmenovaná množina dat, která má: jméno, typ, umístění, velikost,
+ ochranu, vlastníka, datum změny/vytvoření/apod
+\end_layout
+
+\begin_layout Itemize
+POSIX má práva read/write/execute a jdou určit pro user/group/other
+\end_layout
+
+\begin_layout Itemize
+Adresář je struktura k hledání pojmenovaných dat
+\end_layout
+
+\begin_layout Itemize
+Ve stromové struktuře jsou soubory listy
+\end_layout
+
+\begin_layout Subsection
+FAT (File Allocation Table)
+\end_layout
+
+\begin_layout Itemize
+Z roku 1977, v různých verzích (FAT16, FAT32) ho používaly windows až do
+ XP
+\end_layout
+
+\begin_layout Itemize
+Rozdělí disk na clustery a v tabulce si ukládá, který soubor je ve kterých
+ clusterech
+\end_layout
+
+\begin_layout Itemize
+Pokud soubor nezaplní celý cluster, zůstane místo na disku nevyužitelné
+\end_layout
+
+\begin_layout Itemize
+Max.
+ velikost disku je 2TB
+\end_layout
+
+\begin_layout Itemize
+Stále se používá na flashky
+\end_layout
+
+\begin_layout Subsection
+NTFS (New Technology File System)
+\end_layout
+
+\begin_layout Itemize
+Microsoft FS nahrazující FAT v roce 1993
+\end_layout
+
+\begin_layout Itemize
+Podporuje větší disky i soubory než FAT, umí šifrovat a zálohovat data (journali
+ng)
+\end_layout
+
+\begin_layout Subsection
+EXT (Extended File System)
+\end_layout
+
+\begin_layout Itemize
+FS pro Unixové systémy, nejnovější je EXT4
+\end_layout
+
+\begin_layout Itemize
+Údaje o souboru jsou uložené v inode: umístění na disku, majitel, práva,
+ čas změny...
+\end_layout
+
+\begin_layout Itemize
+Na disku je uložená tabulka s přehledem inode, z ní se čtou inode a z nich
+ pak umístění souboru
+\end_layout
+
+\begin_layout Itemize
+Změny v souborech jde vrátit zpět (journaling)
+\end_layout
+
+\begin_layout Section
+Interpretované jazyky
+\end_layout
+
+\begin_layout Itemize
+Bash, BASIC (starší verze), Perl, Python, Matlab, Java
+\end_layout
+
+\begin_layout Itemize
+Vykonává se přímo kód, nebo jeho předkompilovaná verze (byte code v Javě)
+\end_layout
+
+\begin_layout Itemize
+Je nezávislý na cílovém stroji, ale běží pomaleji
+\end_layout
+
+\begin_layout Section
+Kompilované jazyky
+\end_layout
+
+\begin_layout Itemize
+C/C++, kód se kompiluje
+\end_layout
+
+\begin_layout Enumerate
+preprocessing: dají se pryč komentáře, nahradí se makra
+\end_layout
+
+\begin_layout Enumerate
+compiling: C kód se přeloží na instrukce Assembleru
+\end_layout
+
+\begin_layout Enumerate
+assembling: Vznikne object code (*.o) se strojovými instrukcemi
+\end_layout
+
+\begin_layout Enumerate
+linking: do strojových instrukcí se přidají chybějící kusy (knihovny)
 \end_layout
 
 \end_body
