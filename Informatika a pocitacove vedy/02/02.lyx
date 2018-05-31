@@ -1,0 +1,1015 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrreprt
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Počítačové sítě, hierarchický model ISO/OSI.
+ LAN, jejich topologie, technologie a adresování, propojování LAN do internetový
+ch struktur, adresování, směrování.
+ IP protokoly (UDP, TCP, ICMP) a jejich aplikace v konkrétních protokolech
+ (HTTP, SMTP, DNS).
+ Výpočty v síťovém prostředí, klient/server, sockety.
+ (A4B33OSS)
+\end_layout
+
+\begin_layout Section
+Histrorie internetu
+\end_layout
+
+\begin_layout Itemize
+1969 Arpanet
+\end_layout
+
+\begin_layout Itemize
+1982 TCP/IP
+\end_layout
+
+\begin_layout Itemize
+1991 WWW
+\end_layout
+
+\begin_layout Section
+Topologie sítí
+\end_layout
+
+\begin_layout Itemize
+Síť, hvězda, sběrnice, kruh, strom
+\end_layout
+
+\begin_layout Section
+ISO/OSI model (International Organization for Standardization/Open Systems
+ Interconnection model)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vrstva
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vrstva anglicky
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Protokoly
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Název v TCP/IP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Zařízení
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pomůcka
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aplikační
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Application
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FTP, HTTP, SSH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aplikační
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+All
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prezentační
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Presentation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CSS, HTML, GIF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+People
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Relační
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Session
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SQL, SSL, PAP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sleeping
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transportní
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transport
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TCP, UDP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Trasportní
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Through
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Síťová
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Network
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+IP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Síťová
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Router
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Networking
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spojová
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Link
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MAC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spojová
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Switch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lectures
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fyzická
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Physical
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ethernet
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spojová
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hub
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fail
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vrstvy ISO/OSI modelu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ISO OSI model je rozdělený na vrstvy.
+ Teorie je taková, že v každé vrstvě se řeší něco jiného a není potřeba
+ znát fungování jiných vrstev.
+ Třeba emailový klient nepozná, jestli mu data přišla přes wifi nebo kabelem.
+ Data vytvořená v aplikační vrstvě (packet) se obalí hlavičkou nižší vrstvy,
+ postupně se uzavírá do dalších a dalších hlaviček, poslední je hlavička
+ ethernetového rámce.
+ Zařízení se vždy dívají jen na hlavičku z vlastní vrstvy - třeba router
+ posílá packety dál podle IP adresy a je mu jedno, jestli to je TCP nebo
+ UDP.
+ 
+\end_layout
+
+\begin_layout Standard
+V praxi to ale tak vždy není.
+ Třeba FTP posílá IP adresy uvnitř svého packetu, takže když prochází FTP
+ packet routerem na hranici sítě (bránou), ve kterém se adresy překládají
+ (NAT níže), je potřeba packet rozbalit a upravit IP adresy v něm.
+\end_layout
+
+\begin_layout Standard
+TCP/IP je obecnější model, který má vrstvy jen čtyři.
+\end_layout
+
+\begin_layout Section
+Protokoly
+\end_layout
+
+\begin_layout Subsection
+Ethernet
+\end_layout
+
+\begin_layout Itemize
+Na fyzické úrovni je nutné řešit, aby nevysílalo víc zařízení najednou,
+ jinak se signál zaruší a nelze ho poslouchat (tomu se říká kolize)
+\end_layout
+
+\begin_layout Itemize
+Kolizím lze předcházet, třeba tím, že každý připojený stroj má přidělený
+ čas k vysílání (tak to řešil protokol token ring)
+\end_layout
+
+\begin_layout Itemize
+Ethernet kolizím nepředchází, ethernet je detekuje.
+ Každé zařízení během vysílání poslouchá, jestli nevysílá někdo jiný.
+ Pokud ano, obě zařízení přestanou hned vysílat a budou opakovat vysílání
+ po náhodné době.
+\end_layout
+
+\begin_layout Itemize
+V ethernetu se data ověřují pomocí Cyclic Redundancy Check (CRC)
+\end_layout
+
+\begin_layout Subsection
+ARP (Address Resolution Protocol)
+\end_layout
+
+\begin_layout Itemize
+Převádí IP adresu na MAC adresu
+\end_layout
+
+\begin_layout Itemize
+Odesílatel pošle požadavek 
+\begin_inset Quotes eld
+\end_inset
+
+Who has 192.168.37.178
+\begin_inset Quotes erd
+\end_inset
+
+, aby zjistil, kdo má danou IP.
+ Dostane odpověď a MAC adresu si uloží do tabulky pro příště.
+\end_layout
+
+\begin_layout Subsection
+IP
+\end_layout
+
+\begin_layout Itemize
+Slouží k adresaci strojů v síti
+\end_layout
+
+\begin_layout Itemize
+IPv4: Čtyři čísla po 8 bitech, celkem 32 bitů, má 4 miliardy adres, ale
+ dnes už nestačí
+\end_layout
+
+\begin_layout Itemize
+Adresy jsou rozděleny do menších sítí, ty se udávají maskou
+\end_layout
+
+\begin_layout Itemize
+Maska v IP verzi 4 označuje, kolik bitů na začátku adresy má celá síť stejně,
+ ostatní bity identifikují zařízení uvnitř sítě (např.
+ 192.168.0.0/16)
+\end_layout
+
+\begin_layout Itemize
+IPv6: Osm čísel po 16 bitech, celkem 128 bitů, tj 3*10^38 adres, to už by
+ stačit mělo
+\end_layout
+
+\begin_layout Subsection
+NAT
+\end_layout
+
+\begin_layout Standard
+IP adresy uvnitř sítě (třeba 192.168.*.*) nejsou v celém internetu unikátní,
+ taky se jim říká neveřejné.
+ Routery v internetu packety z neveřejných adres mažou.
+ Aby mohly počítače z vnitřních sítí komunikovat se serverem v internetu,
+ musí jim být přidělena veřejná IP adresa, na kterou jim pak server pošle
+ odpověď.
+ Překlad neveřejných IP adres na veřejné obvykle zajišťuje hraniční router
+ sítě (brána) protokolem Network Address Translation (NAT) s pomocí tabulky.
+ Takový router (většinou patří poskytovateli internetu) má několik veřejných
+ IP adres, a když přijde z vnitřní sítě požadavek něco poslat do internetu,
+ uloží si do tabulky neveřejnou IP počítače a k tomu přidělí veřejnou IP.
+ Jakmile přijde odpověď, podívá se do tabulky, aby zjistil, kterému počítači
+ má packet poslat.
+ Při pozdější komunikaci může být veřejná adresa přidělená počítači jiná.
+ Pokud je adres málo, lze pracovat i s porty.
+\end_layout
+
+\begin_layout Subsection
+UDP
+\end_layout
+
+\begin_layout Standard
+User Datagram Protocol slouží k posílání packetů přes síť.
+ UDP neumí garantovat, že všechny packety budou doručeny, a že budou doručeny
+ ve správném pořadí.
+ Občas se prostě stane, že se nějaký packet úplně ztratí.
+ UDP se používá u služeb, kde je prioritou čas, a není důležité mít kompletní
+ informace - třeba u online streamů
+\end_layout
+
+\begin_layout Subsection
+TCP
+\end_layout
+
+\begin_layout Standard
+Transmission Control Protocol také řídí posílání dat, ale garantuje, že
+ dorazí v pořádku.
+ Spojení je navázáno 
+\begin_inset Quotes eld
+\end_inset
+
+handshakem
+\begin_inset Quotes erd
+\end_inset
+
+, kdy nejprve stroj A vyšle žádost o spojení (SYN), spojení je potvrzeno
+ strojem B (SYN ACK), a stroj A potvrdí, že bylo spojení úspěšně navázáno
+ (ACK).
+ Každý packet má své číslo, a přijemce musí potvrdit, že packet obdržel
+ odesláním zprávy ACK.
+ Pokud přijetí nepotvrdí (nebo se ACK ztratí), tak bude packet odeslán znovu.
+ TCP se používá u služeb, kde chceme zaručeně správné a kompletní informace
+ a nepotřebujeme je okamžitě - třeba email.
+\end_layout
+
+\begin_layout Subsection
+ICMP
+\end_layout
+
+\begin_layout Standard
+Internet control message protocol je nástroj, který informuje o stavu sítě.
+ Jeho součástí je třeba ping nebo traceroute.
+ Zprávy 
+\begin_inset Quotes eld
+\end_inset
+
+Destination unreachable
+\begin_inset Quotes erd
+\end_inset
+
+ nebo 
+\begin_inset Quotes eld
+\end_inset
+
+Time limit exceeded
+\begin_inset Quotes erd
+\end_inset
+
+ jsou taky z ICMP - odesílá je router, když maže packet, který se pohyboval
+ internetem moc dlouho.
+ Stáří IP packetu (Time To Live - TTL v jeho hlavičce) se počítá podle počtu
+ navštívených routerů, číslo se postupně snižuje, na nule je packet smazán,
+ protože zřejmě zabloudil.
+\end_layout
+
+\begin_layout Subsection
+HTTP
+\end_layout
+
+\begin_layout Standard
+HyperText Transfer Protocol funguje na principu klient server.
+ Klient posílá serveru požadavky, třeba GET, POST, PUT, DELETE, server je
+ vykonává a odpovídá třímístným číselným kódem:
+\end_layout
+
+\begin_layout Itemize
+1..: Informativní
+\end_layout
+
+\begin_layout Itemize
+2..: Vše proběhlo ok (200 OK)
+\end_layout
+
+\begin_layout Itemize
+3..: Přesměrování
+\end_layout
+
+\begin_layout Itemize
+4..: Chyba na straně klienta (403 forbidden, 404 not found)
+\end_layout
+
+\begin_layout Itemize
+5..: Chyba na straně serveru (500 internal server error)
+\end_layout
+
+\begin_layout Subsection
+SMTP
+\end_layout
+
+\begin_layout Standard
+Simple mail transfer protocol, stará se o emaily.
+\end_layout
+
+\begin_layout Standard
+A: MAIL FROM <...@...>
+\end_layout
+
+\begin_layout Standard
+B: ok
+\end_layout
+
+\begin_layout Standard
+A: RCPT TO <...@...>
+\end_layout
+
+\begin_layout Standard
+B: ok
+\end_layout
+
+\begin_layout Standard
+A: DATA
+\end_layout
+
+\begin_layout Standard
+B: ok, ukonči data pomocí 
+\backslash
+n .
+ 
+\backslash
+n
+\end_layout
+
+\begin_layout Standard
+A: .....
+ 
+\backslash
+n .
+ 
+\backslash
+n
+\end_layout
+
+\begin_layout Standard
+B: ok
+\end_layout
+
+\begin_layout Standard
+A: QUIT
+\end_layout
+
+\begin_layout Standard
+B: bye
+\end_layout
+
+\begin_layout Subsection
+DNS
+\end_layout
+
+\begin_layout Standard
+Domain name system překládá doménová jména (google.com) na IP adresy.
+ Domény mají různé řády, třeba v cyber.felk.cvut.cz je cz doména prvního řádu
+ a cyber doména čtvrtého řádu.
+ Domény se registrují u autoritativního serveru.
+ Při požadavku na identifikaci domény se nejprve server podívá do své paměti,
+ a pokud doménu nemá, ptá se dalších serverů.
+ Autoritativní servery sdílí své domény ostatním serverům společně s jejich
+ dobou platnosti.
+\end_layout
+
+\begin_layout Section
+Sockety
+\end_layout
+
+\begin_layout Standard
+Socket je způsob komunikace mezi procesy, v rámci pc i přes síť.
+ Jeví se jako soubor a zapisuje se do něj jako do ostatních souborů v POSIX
+ (read, write).
+\end_layout
+
+\begin_layout Section
+Bezpečnost
+\end_layout
+
+\begin_layout Standard
+Bezpečnost na síti se řeší dvěma způsoby
+\end_layout
+
+\begin_layout Itemize
+Symetrické klíče: Odesílatel má symetrický klíč, tímto klíčem zašifruje
+ zprávu.
+ Příjemce má stejný klíč a pomocí něj zprávu přečte.
+ Je to výpočetně jednodušší než asymetrické klíče, ale je potřeba vyřešit
+ bezpečné předání klíčů.
+ Taky nejde vůbec poznat, kdo zprávu zašifroval.
+ Jakmile klíč unikne, lze pomocí něj přečíst všechny zprávy.
+\end_layout
+
+\begin_layout Itemize
+Asymetrické klíče: Klíč má dvě části, veřejnou a soukromou.
+ Veřejná část je volně přístupná, a je výpočetně nemožné zjistit z ní soukromý
+ klíč.
+ Server, řekněme banka, má u sebe uložený svůj soukromý klíč.
+ Ten dokáže přečíst všechny zprávy, které byly zašifrovány odpovídajícím
+ veřejným klíčem.
+ Veřejný klíč je registrovaný u certifikační autority danou bankou, certifikační
+ autorita potvrzuje, že klíč opravdu patří bance.
+ Klienti posílají svá data bance zašifrovaná pomocí veřejného klíče, a jediná
+ banka je dokáže pomocí svého soukromého klíče číst.
+ Je ale důležité, aby certifikační autorita (klidně i lokální databáze certifiká
+tů) byla důvěryhodná - viz chyba Superfish u Lenova, hodně hezky to vysvětluje
+ computerphile na youtube.
+\end_layout
+
+\begin_layout Subsection
+SSL a TLS
+\end_layout
+
+\begin_layout Standard
+Transport Layer Security je novější verze SSL.
+ Používá symetrickou kryptografii, ale k bezpečnému předání klíčů používá
+ asymetrické klíče.
+ TLS se používá v HTTPS (bezpečné verzi HTTP), komunikace mezi klientem
+ (K) a serverem (S) se navazuje takto:
+\end_layout
+
+\begin_layout Standard
+K: posílá úvodní packet se seznamem podporovaných šifer a verzí TLS
+\end_layout
+
+\begin_layout Standard
+S: odpovídá, posílá šifru a verzi TLS, která se bude používat a svůj veřejný
+ klíč
+\end_layout
+
+\begin_layout Standard
+K: ověří veřejný klíč u sertifikační autority.
+ Pokud je platný, tak vygeneruje symetrický klíč (ve skutečnosti vygeneruje
+ Master secret, to je složitější), ten zašifruje pomocí veřejného klíče
+ a pošle serveru
+\end_layout
+
+\begin_layout Standard
+S: přečte zprávu pomocí svého soukromého klíče, tím získal symetrický klíč.
+ Teď mají obě strany symetrický klíč a mohou komunikovat.
+\end_layout
+
+\begin_layout Subsection
+RSA
+\end_layout
+
+\begin_layout Standard
+Asymetrická šifra, která se používá třeba u SSH.
+ Máme náhodná hodně velká prvočísla p a q, a číslo N=p*q, které je veřejně
+ známé.
+ Najdeme e, které je nesoudělné s fí(N) = (p-1)(q-1).
+ Najdeme d, aby e*d = 1 mod fí(N).
+\end_layout
+
+\begin_layout Standard
+Veřejný klíč je (N, e), soukromý klíč je (N, d).
+ Zprávu Z zašifrujeme C = Z^e mod N, a dešifrujeme Z = C^d mod N.
+\end_layout
+
+\begin_layout Subsection
+Diffie-Hellmann
+\end_layout
+
+\begin_layout Standard
+Dá se použít k vytvoření symetrického klíče mezi dvěma stranami (Alicí a
+ Bobem) bez pomoci certifikační autority.
+ Máme veřejná čísla p, q, a tajná čísla a od Alice a b od Boba.
+ Alice pošle Bobovi q^a mod p, a Bob pošle Alici q^b mod p.
+ Z toho mohou oba spočítat klíč K = g^(a*b) mod p, ale po odposlechnutí
+ komunikace nelze kód zjistit.
+\end_layout
+
+\begin_layout Subsection
+Man in the middle
+\end_layout
+
+\begin_layout Standard
+Man in the middle (MIM) je útok, během kterého útočník přeruší komunikaci
+ mezi oběma stranami a vede ji přes sebe, u toho pak mění obsah komunikace.
+ V příkladu Diffie-Hellmannovy výměny klíčů může MIM vygenerovat vlastní
+ číslo x, a komunikovat s Alicí pomocí klíče g^(a*x) a s Bobem pomocí klíče
+ g^(x*b), uprostřed zprávy rozbalí, přečte a zašifruje pomocí druhého klíče.
+ Ani jeden z komunikujících se nemůže dozvědět, že komunikace byla narušena.
+\end_layout
+
+\end_body
+\end_document
