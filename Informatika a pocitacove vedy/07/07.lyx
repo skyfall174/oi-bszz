@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass scrreprt
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -29,15 +31,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -118,7 +129,7 @@ lního a logického modelu.
 \end_layout
 
 \begin_layout Section
-Reláční model
+Relační model
 \end_layout
 
 \begin_layout Subsection
@@ -159,7 +170,7 @@ objekt
 \begin_inset Quotes erd
 \end_inset
 
- jednoznačně odlišitelná od ostatních (entita typ je popsán množinou svých
+ jednoznačně odlišitelná od ostatních (entitní typ je dán množinou svých
  atributů).
  Obvykle je vyjádřen podstatným jménem.
 \end_layout
@@ -169,7 +180,7 @@ objekt
 \series bold
 entita : 
 \series default
-instance entitního typu
+instance entitního typu (konkrétní řádek v tabulce, obsahuje nějaké hodnoty)
 \end_layout
 
 \begin_layout Itemize
@@ -177,7 +188,7 @@ instance entitního typu
 \series bold
 atribut : 
 \series default
-atributem může být určen jak pro entitní typ, tak i pto vztah.
+vlastnost entitního typu.
  
 \emph on
 např.: 
@@ -192,7 +203,7 @@ jmeno, prijmeni,
 \series bold
 doména atributu : 
 \series default
-přípustné hodnoty pto atribut
+přípustné hodnoty pro atribut
 \end_layout
 
 \begin_layout Itemize
@@ -206,7 +217,7 @@ vztah
 \series default
 zachycuje, jakým způsobem jsou dvě nebo více entit vztažené mezi sebou.
  Nezaměňovat s relací.
- Existují 3 typy vztahu mezi relacema: 
+ Existují 3 typy vztahu mezi relacemi: 
 \series bold
 1:1, 1:N 
 \series default
@@ -223,8 +234,9 @@ M:N
 \series bold
 klíč (primární klíč) : 
 \series default
-je atribut nebo množina atributů entitního typu, jejichž hodnot jednoznačně
- určuje entitu.
+je atribut (nejčastěji id) nebo množina atributů (např.
+ autor, název v tabulce knížek).
+ Klíč jednoznačně určuje entitu.
 \end_layout
 
 \begin_layout Itemize
@@ -243,8 +255,8 @@ super klíč :
 kandidátní klíč : 
 \series default
 Kandidátní klíč množiny entit je minimální super klíč.
- – rodné číslo je kandidátní klíč entity zákazník – číslo účtu je kandidátní
- klíč je kandidátní klíč entity účet
+ Rodné číslo je kandidátní klíč entity zákazník, číslo účtu je kandidátní
+ klíč klíč entity účet.
 \end_layout
 
 \begin_layout Itemize
@@ -264,7 +276,7 @@ je atribut, který korensponduje s primárním klíčem v jiné relaci (tabulce)
 slabá množina entit : 
 \series default
 při modelování reality se někdy vytváří entitní typy, které nemají samy
- o sobě význa, Existance slabé množiny entit závisí na množině definujících
+ o sobě význam, Existence slabé množiny entit závisí na množině definujících
  entit.
 \end_layout
 
@@ -322,7 +334,7 @@ přiřazuje jednomu záznamu jeden jediný záznam v jiné tabulce.
 1:N : 
 \series default
 přiřadí jednomu záznamu více záznamů v tabulce jiné.
- Nejpoužívanější typ relace, odpovídá mnoha situacím v reálném živoťe.
+ Nejpoužívanější typ relace, odpovídá mnoha situacím v reálném životě.
 \end_layout
 
 \begin_layout Itemize
@@ -389,6 +401,10 @@ kosočtverce
 ovály 
 \series default
 - atributy
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -397,7 +413,7 @@ zdvojené ovály se používají pro více hodnotové atributy
 \end_layout
 
 \begin_layout Itemize
-čárkované ováoy značí odvozené (počítané) atributy
+čárkované ovály značí odvozené (počítané) atributy
 \end_layout
 
 \end_deeper
@@ -448,7 +464,7 @@ k řádkům relace lze přistupovat podle obsahu (klíčových) atributů
 \end_layout
 
 \begin_layout Itemize
-řádky tabulky jsou jedineečné
+řádky tabulky jsou jedinečné
 \end_layout
 
 \begin_layout Standard
@@ -465,9 +481,9 @@ Relace nesplňující 1NF:
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="3">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -576,12 +592,12 @@ Relace v 1NF:
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="6">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -996,8 +1012,8 @@ Entitní
  tabulky; zamezí uložení dat, která neobsahují všechna pole sdružená do
  primárního klíče, nebo data, jež by v těchto polích byla stejná jako v
  nějakém jiném, již zapsaném, řádku tabulky.
- To znamená, že sloupce zvolené jako primární klíč by měli být unikátní
- a nenulová.
+ To znamená, že sloupce zvolené jako primární klíč by měly být unikátní
+ a nenulové.
 \end_layout
 
 \begin_layout Itemize
@@ -1027,7 +1043,7 @@ Základy SQL
 \series bold
 Structured Query Language 
 \series default
-(SQL) je jazyk pro kladení dotazl do databáze.
+(SQL) je jazyk pro kladení dotazů do databáze.
  Obsahuje jak příkazy DML (Data manipulation Language), tak i DDL příkazy
  (Data Definition Language).
  SQL je case insensitive (nerozlišuje mezi velkými a malými písmeny).
@@ -1049,7 +1065,10 @@ SELECT – vybírá data z databáze, umožňuje výběr podmnožiny a řazení 
 
 \begin_layout Itemize
 INSERT – vkládá do databáze nová data.
- UPDATE – mění data v databázi (editace).
+\end_layout
+
+\begin_layout Itemize
+UPDATE – mění data v databázi (editace).
 \end_layout
 
 \begin_layout Itemize
@@ -1115,7 +1134,10 @@ GRANT – příkaz pro přidělení oprávnění uživateli k určitým objektů
 
 \begin_layout Itemize
 REVOKE – příkaz pro odnětí práv uživateli.
- START TRANSACTION – zahájení transakce.
+\end_layout
+
+\begin_layout Itemize
+START TRANSACTION – zahájení transakce.
 \end_layout
 
 \begin_layout Itemize
@@ -1275,6 +1297,10 @@ Ve chvíli, kdy je transakce úspěšně ukončena, databáze musí být konzist
 
 \begin_layout Itemize
 Dva hlavní problémy:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1305,7 +1331,7 @@ K zachování konzistence a integrity databáze, transakční mechanismus musí
 A
 \series default
 tomicity : transakce atomická - buď se podaří a provede se celá nebo nic.
- Nelze vykonat jen čásst transakce.
+ Nelze vykonat jen část transakce.
 \end_layout
 
 \begin_layout Itemize
@@ -1323,8 +1349,8 @@ onsistency : transakce - konkrétní transformace stavu, zachování invariant
 I
 \series default
 solation : (isolace = serializovatelnost).
- Ikdyž jsou transakce vykonány zároveň, tak výsledek je stejný jako by byli
- vykonány jedna po druhé.
+ I když jsou transakce vykonány zároveň, tak výsledek je stejný.
+ jako by byly vykonány jedna po druhé.
 \end_layout
 
 \begin_layout Itemize
@@ -1378,6 +1404,10 @@ Chybující (Failed) – po zjištění, že normální běh transakce nemůže 
 Zrušená (Aborted) – poté, co byla transakce vrácena (rolled back) a databáze
  byla vrácena do stavu před spuštěním transakce.
  Dvě možnosti po zrušení transakce: 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1391,7 +1421,7 @@ Zamítnout transakci
 
 \end_deeper
 \begin_layout Itemize
-Potvrzená (Committed) – po úspěšném dokončeni
+Potvrzená (Committed) – po úspěšném dokončení
 \end_layout
 
 \begin_layout Subsection
@@ -1437,11 +1467,11 @@ Teorie
 \end_layout
 
 \begin_layout Standard
-Nechť sese transakce 
+Nechť se transakce 
 \begin_inset Formula $T_{i}$
 \end_inset
 
- skjládá z následujících elementárních akcí:
+ skládá z následujících elementárních akcí:
 \end_layout
 
 \begin_layout Itemize
@@ -1502,9 +1532,9 @@ Jsou možné 4 případy:
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="3">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -1528,7 +1558,7 @@ Není konflikt
 \begin_inset Text
 
 \begin_layout Plain Layout
-Na pořadí nezávisi
+Na pořadí nezávisí
 \end_layout
 
 \end_inset
@@ -1693,6 +1723,10 @@ Tedy sériový plán zachovává konzistenci databáze
 \begin_layout Itemize
 Plán je serializovatelný, když je ekvivalentní sériovému plánu.
  Různé formy ekvivalence plánů vedou k následujícím pojmům: 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1741,7 +1775,7 @@ zápisu
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="1">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -1841,8 +1875,8 @@ Na úrovni operačního systému definujeme soubor typu read-only a tak zakáže
 \end_layout
 
 \begin_layout Enumerate
-Na úrovni SŘBD (DBMS) v aplikačním programu definujeme svůj pracovní soubor
- jako soubor s výlučným přístupem (exclusive).
+Na úrovni SŘBD (Systém řízení báze dat, DBMS) v aplikačním programu definujeme
+ svůj pracovní soubor jako soubor s výlučným přístupem (exclusive).
  Tak zamezíme přístup všem ostatním procesům, dokud náš program neskončí
  a neuvolní soubor.
  Použijeme příkaz k uzamčení a uvolnění souboru, říkáme, že soubor zamykáme
@@ -1957,12 +1991,16 @@ Obsahuje akce READ, WRITE, XLOCK, SLOCK a UNLOCK
 \end_layout
 
 \begin_layout Enumerate
-COMMIT se nahradí sekvencí příkazů UNLOCK A, pro každý objekt A, nanějž
+COMMIT se nahradí sekvencí příkazů UNLOCK A, pro každý objekt A, na který
  bylo v průběhu transakce aplikováno SLOCK A nebo XLOCK
 \end_layout
 
 \begin_layout Enumerate
-ROLLBACK se nahradí ekvencí:
+ROLLBACK se nahradí sekvencí:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1984,8 +2022,8 @@ Dvoufázová transakce
 Dvoufázové transakce Všechny akce LOCK jsou provedeny před všemi akcemi
  UNLOCK.
  Fáze vzrůstu (growing phase) - během ní se provedou všechny akce LOCK Fáze
- poklesu (shrinking phase) - během ní se provedou všechny akce UNLOCK U
- dvoufázové transakce se fáze vzrůstu a fáze poklesu nepřekrývaji
+ poklesu (shrinking phase) - během ní se provedou všechny akce UNLOCK.
+ U dvoufázové transakce se fáze vzrůstu a fáze poklesu nepřekrývají.
 \end_layout
 
 \begin_layout Subsection
@@ -2066,7 +2104,7 @@ využití přístupu k položkám je nízké, protože jsou dlouhou dobu zbyteč
 \end_layout
 
 \begin_layout Enumerate
-transakce musí čekat až budou volné současně všechny údaje,které chce na
+transakce musí čekat až budou volné současně všechny údaje, které chce na
  začátku zamknout, a to může trvat velmi dlouho.
 \end_layout
 
