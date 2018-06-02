@@ -1,0 +1,373 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrreprt
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Základní vyhodnocovací cyklus Lispu.
+ Práce se seznamy v Lispu.
+ Destruktivní a nedestruktivní konstrukty.
+ Lambda kalkulus, funkce vyššího řádu, lokální proměnná, kombinace iterativních
+ konstruktů a rekurze.
+ Modely pravidlového progamování.
+ (A4B33FLP)
+\end_layout
+
+\begin_layout Section
+Vyhodnocování v Lispu
+\end_layout
+
+\begin_layout Itemize
+vyhodnocování probíhá způsobem REPL: Read-Eval-Print-Loop
+\end_layout
+
+\begin_layout Itemize
+často se u Lispu používá překladač, který zdrojový kód přeloží do optimalizované
+ho kódu podobného výsledkům Céčkového překladače
+\end_layout
+
+\begin_layout Itemize
+zapisujeme v prefixové notaci (+ 1 2)
+\end_layout
+
+\begin_layout Itemize
+pokud součástí seznamu je další podseznam, tak se nejprve vyhodnocuje ten
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+dochází k rekurzivnímu zanořování
+\end_layout
+
+\begin_layout Itemize
+teoreticky není omezená hloubka zanoření, záleží spíš na kapacitě fyzických
+ zdrojů
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Seznam v Lispu
+\end_layout
+
+\begin_layout Itemize
+všechno v lispu je reprezentováno jako seznam
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename fig/tree.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+zápis seznamu ve zdrojovém kódu: (prvek1 prvek2 prvek3 ...)
+\end_layout
+
+\begin_layout Itemize
+obecně se dá říct, že první prvek seznamu je chápaný jako název funkce a
+ této funkci se předá následně zbytek seznamu jako seznam parametrů
+\end_layout
+
+\begin_layout Itemize
+základní funkce pro práci se seznamem:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+car - 
+\series default
+vrátí první prvek seznamu
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+cdr - 
+\series default
+vrací podseznam seznamu bez prvního prvku 
+\end_layout
+
+\begin_layout Itemize
+cons - spojuje dva zadané seznamy
+\end_layout
+
+\begin_layout Itemize
+append - přidá nakonec seznamu další prvek
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Destruktivní a nedestruktivní konstruktory
+\end_layout
+
+\begin_layout Itemize
+nedestruktivní konstrukce
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+v těchto konstrukcích funkcionálního programování funkce nemění hodnotu
+ proměnné a pouze vrací novou hodnotu
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+destruktivní konstrukce
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+pro odlišení se názvy funkcí zapisují s vykřičníkem
+\end_layout
+
+\begin_layout Itemize
+při jejich použití se například zapisuje a tím se mění hodnoty proměnných
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Lambda kalkulus
+\end_layout
+
+\begin_layout Itemize
+lambda kalkulus je konstrukce funkcionálního programování, pomocí níž jsme
+ schopni uvnitř funkce definovat jednorázovou lambda funkci a rovnou jí
+ uvnitř využít
+\end_layout
+
+\begin_layout Itemize
+chovají se jako funkce
+\end_layout
+
+\begin_layout Itemize
+mezivýpočty
+\end_layout
+
+\begin_layout Section
+Funkce vyššího řádu
+\end_layout
+
+\begin_layout Itemize
+funkce, které jsou schopné v parametru přijmout jiné funkce nebo vrátit
+ funkci
+\end_layout
+
+\begin_layout Itemize
+apply 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+jako první argument očekává funkci a následně seznam prvků
+\end_layout
+
+\begin_layout Itemize
+funkci postupně aplikuje na všechny prvky předaného seznamu
+\end_layout
+
+\begin_layout Itemize
+(apply + `(1 2 3)) vrací tedy 6
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+map
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+jako první argument opět očekává funkci a následně tuto funkci aplikuje
+ na každý prvek seznamu separátně
+\end_layout
+
+\begin_layout Itemize
+(define (mocnina a) (* a 2) ) 
+\end_layout
+
+\begin_layout Itemize
+(map mocnina '(1 2 3))
+\end_layout
+
+\begin_layout Itemize
+>> (2 4 6)
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Lokální proměnné
+\end_layout
+
+\begin_layout Itemize
+lokální proměnnou v Lispu můžeme definovat pomocí funkce 
+\begin_inset Quotes eld
+\end_inset
+
+let
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+(let (x data))
+\end_layout
+
+\begin_layout Itemize
+tento způsob však ve funkcionálním programování není obvyklou konstrukcí
+ a vše co je zapsáno pomocí lokální proměnné jde přepsat do rekurzivní formy
+\end_layout
+
+\begin_layout Itemize
+globální proměnné vůbec neexistují
+\end_layout
+
+\begin_layout Section
+Iterativní konstrukce vs rekurze
+\end_layout
+
+\begin_layout Itemize
+rekurze
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+základní přístup funkcionálního programování 
+\end_layout
+
+\begin_layout Itemize
+funkce volá sebe sama
+\end_layout
+
+\begin_layout Itemize
+je nutné definovat ukončovací podmínku
+\end_layout
+
+\begin_layout Itemize
+tail recursion optimalizace
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ve chvíli kdy dochází k rekurzi v posledním volání, tak se šetří místo na
+ zásobníku
+\end_layout
+
+\begin_layout Itemize
+není nutné ukládat starý rámec a rekurze se vrací pouze skokem
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+iterace
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+využívá akumulátor
+\end_layout
+
+\begin_layout Itemize
+částečné výsledky jsou odesílány pomocí akumulátoru jako parametr funkce
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Modely pravidlového programování
+\end_layout
+
+\begin_layout Itemize
+pravidlové programování pouze definuje pravidla - predikáty
+\end_layout
+
+\begin_layout Itemize
+pomocí resoluční metody se hledá řešení zadané úlohy
+\end_layout
+
+\begin_layout Itemize
+neobsahuje přesný popis řešení - algoritmus
+\end_layout
+
+\end_body
+\end_document
