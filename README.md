@@ -88,7 +88,13 @@ Hotové otázky
 
 
 
-### Informatika a počítačové vědy
+### Informatika a počítačové vědy - kompatibilita 2018
+
+1\. Operační systém, proces, vlákno, algoritmy plánování procesů a vláken. Komunikace mezi procesy a vlákny, časově závislé chyby, kritické sekce, synchronizační nástroje, problém uváznutí, možnosti řešení. Správa paměti. Virtuální paměť - stránkování, algoritmy pro náhradu stránek, segmentace. Souborové systémy, organizace dat na vnějších pamětích, principy, řešení, ochrany. (A4B33OSS)
+
+2\. Počítačové sítě, hierarchický model ISO/OSI. LAN, jejich topologie, technologie a adresování, propojování LAN do internetových struktur, adresování, směrování. IP protokoly (UDP, TCP, ICMP) a jejich aplikace v konkrétních protokolech (HTTP, SMTP, DNS). Výpočty v síťovém prostředí, klient/server, sockety. (A4B33OSS)
+
+7\. Základy modelování dat, E-R diagramy, relační model. Integritní omezení, normální formy. Základy jazyka SQL, referenční integrita, agregační funkce, vnořené dotazy. Transakce, jejich serializovatelnost, zamykání, stupně izolovanosti, uváznutí transakcí, jeho prevence a řešení. Objektově-relační mapování, persistence objektů. (A4B33DS)
 
 12\. Bayesovská rozhodovací úloha, tj. minimalizace střední ztráty. Nebayesovské rozhodovací úlohy (Neyman-Pearson, minimax). (A4B33RPZ)
 
