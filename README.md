@@ -96,6 +96,8 @@ Hotové otázky
 
 7\. Základy modelování dat, E-R diagramy, relační model. Integritní omezení, normální formy. Základy jazyka SQL, referenční integrita, agregační funkce, vnořené dotazy. Transakce, jejich serializovatelnost, zamykání, stupně izolovanosti, uváznutí transakcí, jeho prevence a řešení. Objektově-relační mapování, persistence objektů. (A4B33DS)
 
+8\. Základní vyhodnocovací cyklus Lispu. Práce se seznamy v Lispu. Destruktivní a nedestruktivní konstrukty. Lambda kalkulus, funkce vyššího řádu, lokální proměnná, kombinace iterativních konstruktů a rekurze. Modely pravidlového progamování. (A4B33FLP)
+
 12\. Bayesovská rozhodovací úloha, tj. minimalizace střední ztráty. Nebayesovské rozhodovací úlohy (Neyman-Pearson, minimax). (A4B33RPZ)
 
 13\. Lineární klasifikátory, jejich výhody. Perceptronový algoritmus učení. (A4B33RPZ)
