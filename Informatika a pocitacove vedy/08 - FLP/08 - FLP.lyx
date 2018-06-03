@@ -167,11 +167,18 @@ vrací podseznam seznamu bez prvního prvku
 \end_layout
 
 \begin_layout Itemize
-cons - spojuje dva zadané seznamy
+cons - vezme data z prvního argumentu a přidá je jako první prvek k datum
+ ve druhém argumentu
 \end_layout
 
 \begin_layout Itemize
-append - přidá nakonec seznamu další prvek
+append - očekává 2 a víc argumentů, všechny by měli být list až na poslední,
+ následně všechny postupně pospojuje do listu
+\end_layout
+
+\begin_layout Itemize
+list - očekává n argumentů jakéhokoliv typu, vrátí list všech argumentů
+ pohromadě v zadaném pořadí
 \end_layout
 
 \end_deeper
