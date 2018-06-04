@@ -1,4 +1,4 @@
-﻿﻿oi-bszz
+﻿oi-bszz
 =======
 
 Otázky státních závěrečných zkoušek pro studijní program Otevřená informatika ČVUT FEL
@@ -17,19 +17,19 @@ Hotové otázky
 
 ### Společná část (kompletní)
 
-01\.	Lineární závislost a nezávislost, báze, dimenze. Lineární zobrazení, jádro a obor hodnot, skalární a vektorový součin. (A0B01LAG)
+01\. Lineární závislost a nezávislost, báze, dimenze. Lineární zobrazení, jádro a obor hodnot, skalární a vektorový součin. (A0B01LAG)
 
-02\.  Matice, determinant, inverzní matice, vlastní čísla a vlastní vektory matice. Soustavy lineárních rovnic. (A0B01LAG)
+02\. Matice, determinant, inverzní matice, vlastní čísla a vlastní vektory matice. Soustavy lineárních rovnic. (A0B01LAG)
 
 03\. Vlastnosti celých čísel (dělitelnost, prvočísla) a Eukleidův algoritmus. Binární relace, zejména ekvivalence a uspořádání, a jejich reprezentace. Počítání modulo. (A4B01DMA) 
 
 04\. Kombinatorika (kombinatorická čísla, princip inkluze a exkluze); Využití matematické indukce; rekurzivní vztahy (řešení rovnic, odhad náročnosti algoritmů) (A4B01DMA) 
 
-05\.  Imperativní programování, software, překladač, interpret, vnitřní forma, programovací jazyky, syntaxe, sémantika, proměnné, výrazy, vstup, výstup, řídící struktury, jednoduché datové typy, přiřazení, funkce, procedury, parametry, rozklad problému na podproblémy, princip rekurze a iterace (A0B36PR1) 
+05\. Imperativní programování, software, překladač, interpret, vnitřní forma, programovací jazyky, syntaxe, sémantika, proměnné, výrazy, vstup, výstup, řídící struktury, jednoduché datové typy, přiřazení, funkce, procedury, parametry, rozklad problému na podproblémy, princip rekurze a iterace (A0B36PR1) 
 
-06\.  Principy objektového přístupu, třída jako: programová jednotka, zdroj funkcí, datový typ; struktura objektu, konstruktory, přetěžování, instance třídy, hierarchie tříd, dědění, kompozice; abstraktní třídy, polymorfismus, rozhraní, rozhraní jako typ proměnné, typ interface. (A0B36PR1) 
+06\. Principy objektového přístupu, třída jako: programová jednotka, zdroj funkcí, datový typ; struktura objektu, konstruktory, přetěžování, instance třídy, hierarchie tříd, dědění, kompozice; abstraktní třídy, polymorfismus, rozhraní, rozhraní jako typ proměnné, typ interface. (A0B36PR1) 
 
-07\.  Principy objektového přístupu, třída jako: programová jednotka, zdroj funkcí, datový typ; struktura objektu, konstruktory, přetěžování, instance třídy, hierarchie tříd, dědění, kompozice; abstraktní třídy, polymorfismus, rozhraní, rozhraní jako typ proměnné, typ interface. (A0B36PR1) 
+07\. Spojové seznamy, lineární seznamy, obecné spojové struktury, stromy, jejich vlastnosti, binární stromy, implementace (A0B36PR1) 
 
 08\. Limita funkce a posloupnosti, zejména rychlosti růstu v nekonečnu a l'Hospitalovo pravidlo. Derivace a parciální derivace: výpočet a význam (rychlost změny, monotonie, extrémy, gradient). (A4B01MA2) 
 
