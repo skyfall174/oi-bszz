@@ -65,33 +65,33 @@ Důležité registry:
 
 \section{Přerušení}
 Jsou dva druhy přerušení a u obou dochází k přerušení sekvence vykonávaného kódu a přechází se na obsluhu.
-\begin{itemize}
-\item \textbf{Vnější přerušení} - asynchronní obsluha vnější události, např. reakce OS na event ze vstupní periferie.
-\item \textbf{Vnitřní přerušení} (výjimka) - přimo od CPU, které takto reaguje na problém při zpracování instrukce, např. dělení nulou
-\item \textbf{Synchronní soft. přerušení} - záměrné přerušení vzniklé vložením patřičné instrukce na místo v kódu.
-\end{itemize}
+\begin{description}
+\item [Vnější přerušení] asynchronní obsluha vnější události, např. reakce OS na event ze vstupní periferie.
+\item [Vnitřní přerušení (výjimka)] přimo od CPU, které takto reaguje na problém při zpracování instrukce, např. dělení nulou
+\item [Synchronní soft. přerušení] záměrné přerušení vzniklé vložením patřičné instrukce na místo v kódu.
+\end{description}
 
 
 \section{Instrukční sady}
-Každá instrukce se skládá z opcode a operandu. Operandy mohou být registry (resp. jejich "indexy"), adresa (např. pro skoky)
+Každá instrukce se skládá z opcode a operandu. Operandy mohou být registry (resp. jejich "indexy"), adresa (např. pro skoky).
 
 \subsection{RISC}
 Reduced Instruction Set Computer je architektura CPU, ve které je velice omezena intrukční sada (IS) např. jen na sčítání, bitové posuny, nějaké čtení/ukládání atd. Zbytek se realizuje softwarově. Všechny instrukce mají pevný formát a délku a také stejnou dobu vykonání. Velikost IS taky implikuje potřebu mnohem menšího počtu tranzistorů, což je mimo jiné důvod, proč třeba ARMy moc nežerou. Zástupci: ARM, MIPS, PowerPC.
 
 \subsection{CISC}
-Complex Instruction Set Computer je architektura (prozatím) většiny uživatelských CPU. Instrukční sada bývá často poměrně velká, instrukce nemusí být stejně dlouhé a jejich vykonání může trvat různě dlouho. Zástupci: x86, amd64
+Complex Instruction Set Computer je architektura (prozatím) většiny uživatelských CPU. Instrukční sada bývá často poměrně velká, instrukce nemusí být stejně dlouhé a jejich vykonání může trvat různě dlouho. Zástupci: x86, amd64.
 
 \section{Sítě procesoru a paralelní architektury}
 Existují 4 typy struktur procesoru:
-\begin{enumerate}
-\item \textbf{Single instruction single data (SISD)} - Klasický procesor tj. jednoduchý tok instrukcí i dat (používá se ve většině pc s von Neumannovou architekturou)
-\item \textbf{Single instruction multiple data (SIMD)} - Procesorové pole - jednoduchý tok instrukcí, vícenásobný tok dat. např. GPU
-\item \textbf{Multiple instruction single data (MISD)} - Pipeline
-\item \textbf{Multiple instruction multiple data (MIMD)} - Multiprocesorové pole
-\end{enumerate}
+\begin{description}
+\item [Single instruction single data (SISD)] Klasický procesor tj. jednoduchý tok instrukcí i dat (používá se ve většině pc s von Neumannovou architekturou)
+\item [Single instruction multiple data (SIMD)] Procesorové pole - jednoduchý tok instrukcí, vícenásobný tok dat. např. GPU
+\item [Multiple instruction single data (MISD)] Pipeline
+\item [Multiple instruction multiple data (MIMD)] Multiprocesorové pole
+\end{description}
 
 \subsection{Propojovací sítě}
-Zajišťují propojení a komunikaci mezi procesory. Dělí se na statické a dynamické, přičemž ve statických jsou spoje neměnné a v dynamických naopak. U dynamických jsou spojovací spínače řízeny buď lokálně, kdy má každá skupina svůj řadič, nebo centrálně, kdy existuje jen jeden.
+Zajišťují propojení a komunikaci mezi procesory v architekturách s více procesory. Dělí se na statické a dynamické, přičemž ve statických jsou spoje neměnné a v dynamických naopak. U dynamických jsou spojovací spínače řízeny buď lokálně, kdy má každá skupina svůj řadič, nebo centrálně, kdy existuje jen jeden.
 
 Statické propojovací sítě jsou: lineární, stromová, kruhová, mřížová, hvězdicová, krychlová a polygonální (úplný graf).
 
@@ -113,7 +113,7 @@ Statické propojovací sítě jsou: lineární, stromová, kruhová, mřížová
 \item[SIMD se sdílenou pamětí] Na rozdíl od SIMD s lokální pamětí je v tomto případě paměť od procesoru oddělena a komunikace probíhá přes propojovací síť
 	\begin{itemize}
 	\item Přidělování paměti do procesoru zajišťuje řadič
-	\item Počet paměťových modulů může být jiný než počet procesorů procesoru
+	\item Počet paměťových modulů může být jiný než počet procesorů
 	\end{itemize}
 \end{description}
 
