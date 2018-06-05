@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass scrreprt
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -29,15 +31,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -159,7 +170,7 @@ Jsou-li
 
 \begin_layout Enumerate
 Nic jiného než to, co vzniklo pomocí konečně mnoha použití bodů 1 a 2, není
- výrokové formule.
+ výroková formule.
 \end_layout
 
 \begin_layout Standard
@@ -232,7 +243,7 @@ Syntaktický strom formule
 \end_layout
 
 \begin_layout Standard
-To jak formule vznikla podle bodů 1 a 2, si můžeme znázornit na 
+To, jak formule vznikla podle bodů 1 a 2, si můžeme znázornit na 
 \emph on
 syntaktickém stromu
 \emph default
@@ -241,9 +252,10 @@ syntaktickém stromu
 derivačním stromu
 \emph default
  dané formule.
- Jedná se o kořenový strom, kde každý vrchol, který není listem je ohodnocen
- logickou spojkou a jedná-li se o binární spojku, má vrchol dva následníky,
- jedná-li se o unární spojku, má vrchol pouze jednoho následníka.
+ Jedná se o kořenový strom, kde každý vrchol, který není listem, je ohodnocen
+ logickou spojkou.
+ Jedná-li se o binární spojku, má vrchol dva následníky, jedná-li se o unární
+ spojku, má vrchol pouze jednoho následníka.
  Přitom pro formule 
 \begin_inset Formula $\left(\alpha\wedge\beta\right)$
 \end_inset
@@ -314,10 +326,11 @@ ohodnocení formulí
 \end_layout
 
 \begin_layout Enumerate
+Negace (
 \begin_inset Formula $\neg\alpha$
 \end_inset
 
- je pravdivá právě tehdy, když 
+) je pravdivá právě tehdy, když 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -334,10 +347,11 @@ ohodnocení formulí
 \end_layout
 
 \begin_layout Enumerate
+Konjunkce (
 \begin_inset Formula $\alpha\wedge\beta$
 \end_inset
 
- je pravdivá právě tehdy, když 
+) je pravdivá právě tehdy, když 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -345,7 +359,7 @@ ohodnocení formulí
 \begin_inset Formula $\beta$
 \end_inset
 
- jsou obě pravdivá, tj.
+ jsou obě pravdivé, tj.
  
 \begin_inset Formula $u\left(\alpha\wedge\beta\right)=1$
 \end_inset
@@ -354,14 +368,15 @@ ohodnocení formulí
 \begin_inset Formula $u\left(\alpha\right)=u\left(\beta\right)=1$
 \end_inset
 
-;
+
 \end_layout
 
 \begin_layout Enumerate
+Disjunkce (
 \begin_inset Formula $\alpha\vee\beta$
 \end_inset
 
- je nepravdivá právě tehdy, když 
+) je nepravdivá právě tehdy, když 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -382,10 +397,11 @@ ohodnocení formulí
 \end_layout
 
 \begin_layout Enumerate
+Implikace (
 \begin_inset Formula $\alpha\Rightarrow\beta$
 \end_inset
 
- je nepravdivá právě tehdy, když 
+) je nepravdivá právě tehdy, když 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -410,10 +426,11 @@ ohodnocení formulí
 \end_layout
 
 \begin_layout Enumerate
+Ekvivalence (
 \begin_inset Formula $\alpha\Leftrightarrow\beta$
 \end_inset
 
- je pravdivá právě tehdy, když buď obě formule 
+) je pravdivá právě tehdy, když buď obě formule 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -441,6 +458,10 @@ Pravdivostní tabulky
 Vlastnosti, které ohodnocení formulí musí mít, znázorňujeme též pomocí tzv.
  pravdivostních tabulek logických spojek.
  Jsou to:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -448,8 +469,8 @@ Vlastnosti, které ohodnocení formulí musí mít, znázorňujeme též pomocí
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -528,12 +549,12 @@ Vlastnosti, které ohodnocení formulí musí mít, znázorňujeme též pomocí
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="6">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -979,6 +1000,15 @@ sémanticky ekvivalentní
 \end_inset
 
 .
+ Tautologickou ekvivalenci značíme 
+\begin_inset Formula $\varphi$
+\end_inset
+
+|=| 
+\begin_inset Formula $\psi$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1343,6 +1373,10 @@ Každá formule s jednou (nebo žádnou) logickou proměnnou představuje zobraz
 
 .
  Existují čtyři taková zobrazení:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1350,11 +1384,11 @@ Každá formule s jednou (nebo žádnou) logickou proměnnou představuje zobraz
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -1651,8 +1685,8 @@ Booleova funkce
 .
  Naopak platí, že pro každou Booleovu funkci existuje formule, která této
  funkci odpovídá.
- Ukážeme v dalším, že dokonce můžeme volit formu ve speciálním tvaru, v
- tzv.
+ Ukážeme v dalším, že dokonce můžeme volit formuli ve speciálním tvaru,
+ v tzv.
  
 \emph on
 konjunktivním normálním tvaru
@@ -1867,7 +1901,7 @@ Víme, že pro pravdivostní ohodnocení formulí platí:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-u\left(a\vee b\right)=\max\left\{ u\left(a\right).u\left(b\right)\right\} =\max\left\{ x,y\right\} ,
+u\left(a\vee b\right)=\max\left\{ u\left(a\right),u\left(b\right)\right\} =\max\left\{ x,y\right\} ,
 \]
 
 \end_inset
@@ -2494,7 +2528,7 @@ Uvědomme si, že
 \begin_inset Formula $\alpha$
 \end_inset
 
- =| 
+ |=| 
 \begin_inset Formula $\beta$
 \end_inset
 
@@ -3308,6 +3342,10 @@ Jazyk predikátové logiky
 logických symbolů
 \emph default
 , tj.:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3346,6 +3384,10 @@ obecného kvantifikátoru
 speciálních symbolů
 \emph default
 , tj.:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3905,6 +3947,10 @@ universum
 \end_inset
 
  je přiřazení, které
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4125,6 +4171,10 @@ Je-li
 
  term.
  pak jeho hodnota je
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4233,6 +4283,10 @@ n
 \end_inset
 
  právě tehdy, když
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4286,6 +4340,10 @@ Jsou-li
 \end_inset
 
  již známe, pak
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4379,6 +4437,10 @@ Je-li
 \end_inset
 
  proměnná, pak
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -5465,6 +5527,10 @@ Je-li
 X
 \emph default
  proměnná, neděláme nic.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -5562,6 +5628,10 @@ Z
 X
 \emph default
 , stop, výstup neexistuje.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
