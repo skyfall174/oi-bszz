@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass scrreprt
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -29,15 +31,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -94,6 +105,10 @@ Pevný a programovatelný řadič.
 
 \begin_layout Itemize
 jasně odlišitelná část systému, která řídí nějaký úkon
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -138,7 +153,7 @@ ve velmi jednoduchých případech levnější
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename img/uprog_vs_klasik.emf
+	filename img/uprog_vs_klasik.png
 	lyxscale 10
 	width 15page%
 
@@ -177,6 +192,10 @@ mikroinstrukce se provádějí velmi rychle a lze je paralelizovat
 
 \begin_layout Itemize
 příklad mikroprogramu jedné instrukce přičítání např.:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -220,7 +239,7 @@ Architektura počítače
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename img/neuman_harvard.emf
+	filename img/neuman_harvard.png
 	lyxscale 15
 	width 75page%
 
@@ -271,6 +290,10 @@ PC program counter - čítač instrukcí - uchovává stav paměti, procesor má
 
 \begin_layout Description
 registry
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -300,7 +323,7 @@ ukazatel zásobníku - stack pointer - SP
 \end_layout
 
 \begin_layout Itemize
-uchováná adresu posledního záznamu uloženého na zásobníku
+uchovává adresu posledního záznamu uloženého na zásobníku
 \end_layout
 
 \begin_layout Itemize
@@ -343,6 +366,10 @@ typy instrukcí
 
 \begin_layout Description
 CISC complex instruction set computer
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -355,12 +382,16 @@ zpomalování procesoru
 \end_layout
 
 \begin_layout Itemize
-různě dlouhé , různě trvající instrukce
+různě dlouhé, různě trvající instrukce
 \end_layout
 
 \end_deeper
 \begin_layout Description
 RISC reduced instruction set computing
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -374,12 +405,13 @@ jeden cyklus cpu - asi není nezbytné
 \end_layout
 
 \begin_layout Standard
-nevíme co znamená HP.
+Nevíme, co znamená HP, asi Heap Pointer.
 \end_layout
 
 \begin_layout Standard
-Tak jako tak, prvním krokem je načtení obsahu paměti na adrese PC, tak jestli
- tím nemysleli adresu v hlavní paměti?? Tohle je detail.
+Tak jako tak, prvním krokem je načtení obsahu paměti na adrese PC, asi tím
+ mysleli adresu v hlavní paměti...
+ Tohle je detail.
 \end_layout
 
 \begin_layout Standard
@@ -398,7 +430,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename img/one_cpu_cycle.emf
+	filename img/one_cpu_cycle.png
 	lyxscale 20
 	width 40page%
 
