@@ -1,140 +1,165 @@
-\documentclass[10pt]{article}
-\usepackage{a4wide}
-\usepackage{amsmath, amssymb}
-\usepackage{amsthm}
+\documentclass[10pt,a4paper,openright]{article}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[left=2.4cm,right=2.4cm,top=2cm,bottom=2cm]{geometry}
 
-\parindent 0pt
-\renewcommand{\labelitemi}{$-$}
+% cestina
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+
+% obrazky
+\usepackage{graphicx}
+
+% mezera pred odstavci
+\usepackage{indentfirst}
+\setlength{\parskip}{0.2em}%
+\setlength{\parindent}{1em}%
 \begin{document}
 
 \begin{center}
 \begin{LARGE}
-\textbf{\#32 APO-2}\\
+\textbf{32 AP0}\\
 \end{LARGE}
 Petr Svec
 \end{center}
 
-\section*{Mnohaurovnova struktura pocitacu a virtualizace}
-\subsection*{Struktura}
-Viceurovnova struktura ma za cil usnadnit praci programatorum, pridanim dodatecnych urovni abstrakce - predevsim jazyku vyssi urovne.\\
+\section*{Mnohaúrovňová organizace počítače, virtuální stroje. Virtuální programovací prostředí a virtualizační techniky. Klasická registrově orientovaná architektura s kompletní instrukční sadou. Standardní systémové a I/O sběrnice počítačových systémů}
 
-- druhou nejnizsi urovni (znaceno L2) je strojovy jazyk tj. nuly a jednicky (prvni nema ani moc smysl uvazovat, jelikoz se k ni normalni smrtelnik ani nedostane viz. dale).\\
-- pro lidi samozrejme necitelny, coz je duvodem existence vyssich urovni, ale na druhou stranu to nejrychlejsi co na danem hardwaru dostaneme, takze kazdy program ve vysledku bezi na tehle urovni.\\[10pt]
-\textbf{Virtualni pocitac}\\
-- na kazde vyssi urovni nez je strojova zavadime virtualni pocitac $M_i$ s jazykem $L_i$. Program napsany v $L_i$ se preklada do $L_{i-1}$ nebo je interpretovan v $M_{i-1}$ pro $i > 2$ (pri i = 1 jsme na strojovem jazyce).\\
-- pro pripomenuti:
+\section{Mnohaúrovňová struktura počítačů a virtualizace}
+\subsection{Struktura}
+Viceúrovňová struktura má za cíl usnadnit práci programátorům, přidáním dodatečných úrovní abstrakce - především jazyků vyšší úrovně.
+
+Druhou nejnižší úrovní (značeno L2) je strojový jazyk tj. nuly a jedničky. První úroveň nemá ani moc smysl uvažovat, protože se k ní normální smrtelník ani nedostane, viz. dále.
+
+L2 je pro lidi samozřejmě nečitelný, což je důvodem existence vyšších úrovní, ale na druhou stranu je to to nejrychlejší, co na daném HW dostaneme, takže každý program ve výsledku běží na téhle úrovni.
+
+\subsection{Virtuální počítač}
+Na každé vyšší úrovni $i$ než je strojová zavádíme virtuální počítač $M_i$ s jazykem $L_i$. Program napsaný v $L_i$ se překládá do $L_{i-1}$ nebo je interpretován v $M_{i-1}$ pro $i > 2$ (při i = 1 jsme na strojovém jazyce).
+
+Pro připomenutí:
+\begin{description}
+\item[interpretace] program v $L_{i-1}$ zpracovává $L_i$ jako data
+\item[kompilace] instrukce z $L_i$ jsou převedeny na instrukce v $L_{i-1}$
+\end{description}
+
+\subsection{Běžná struktura současného počítače}
+Současný počítač se skládá z následujících úrovní:
+\begin{description}
+
+\item[L1] Mikrokód (mikroinstrukce) - překládá strojový kód na instrukce pro práci s obvody - interpretovaný, ale velice rychlý. Byl přidál až po strojovém kódu.
+\item[L2] Strojový kód
+\item[L3] Úroveň operačního systému (OS)
+\item[L4] Assembly lang. (ASM)
+\item[L5] High lvl lang. 
+\end{description}
+
+\textit{Pozn.: ve slidech je uveden OS jako nižší než assembly lang. Osobně mi to přijde podivné, jelikož např. u RISCových procesorů bez instrukce násobení je nejprve potřeba funkce OS, která násobení realizuje, abychom dostali kód v ASM. Dalším příkladem je klíčové slovo ``new'' v C++ na alokaci paměti, které se také musí převést na systémové volání.}
+
+\subsection{Strojová úroveň - $M_2$}
 \begin{itemize}
-\item interpretace = program v $L_{i-1}$ zpracovava $L_i$ jako data
-\item kompilace = prevod instrukci z $L_i$ na instrukce v $L_{i-1}$
+\item definovaná instrukční sadou
+\item instrukční formát se skládá z OPcode (kód instrukce) a 0-3 adres/registrů (při 0 je adresa/registr implicitní)
+\item u RISC je nejcastejsi 3 adresovy format u CISC 2 adresovy
 \end{itemize}
 
-\textbf{Bezna struktura soucasneho pocitace}\\
-Serazeno od nejnizsi uroven po nejvysi se soucasny pocitac sklada z nasledujicich urovni:
-\begin{enumerate}
-\item L1 - mikrokod (mikroinstrukce) - preklada strojovy kod na instrukce pro praci s obvody - interpretovany, ale velice rychly. Byl pridan az pozdeji tj. po strojovem kodu.
-\item L2 - strojovy kod
-\item L3 - uroven operacniho systemu (OS)
-\item L4 - assembly lang.(ASM)
-\item L5 - high lvl lang. 
+\subsection{Virtualizace}
+Principem virtualizace je skrytí nižších vrstev a implementace vrstvy, která se tváří jako samostatný HW.
 
-\end{enumerate}
+Virtualizace se dělí na několik skupin:
 
-\textit{Pozn. ve slidech je uveden OS jako nizsi nez assembly lang. Osobne mi to prijde podivny, jelikoz napr. u RISCovych procesoru bez instrukce nasobeni je nejprve treba funkci OS, ktere nasobeni realizuji abychom dostali kod v ASM. Dalsim prikladem je keyword "new" v C++ na alokaci pameti, ktere se take musi preves na systemove volani.}\\
-
-\textbf{Strojova uroven - $M_2$}\\
-- definovana instrukcni sadou\\
-- instrukcni format se sklada z OPcode (kod instrukce) a 0-3 adres/registru (pri 0 je adresa/registr implicitni)\\
-- u RISC je nejcastejsi 3 adresovy format u CISC 2 adresovy\\
-
-\subsection*{Virtualizace}
-Principem virtualizace je skryti nizsich vrstev a implementace vrstvy, ktera se tvari jako samostatny HW.\\
-
-\newpage
-V. se deli na nekolik skupin:
 \begin{itemize}
-\item Na urovni jazyka a byte kodu - virtualni stroje (Java, .NOT)
-\item Emulace jine pocit. architektury
-\item Nativni virtualizace - izolovane prostredi poskytujici shodny typ
-architektury pro nemodifikovany OS
-\item Virtualizace s plnou podporou HW (napriklad vetsina novych CISCovych procesoru ji v sobe ma)
-\item Castecna virtualizace - typicky jen adresni prostory
+\item Na úrovni jazyka a byte kódu - virtualní stroje (Java, .NET)
+\item Emulace jiné počítačové architektury
+\item Nativní virtualizace - izolované prostředí poskytující shodný typ architektury pro nemodifikovaný OS
+\item Virtualizace s plnou podporou HW (například většina nových CISCových procesorů jí v sobě má)
+\item Částečná virtualizace - typicky jen adresní prostory
 \item Paravirtualizace
-\item Virtualizace na urovni OS - oddelena uzivatelska rozhrani
+\item Virtualizace na úrovni OS - oddělená uživatelská rozhraní
 \end{itemize}
 
-\textbf{Hypervizor} (Virtual machine monitor - VMM)\\
-- program, ktery zajistuje zakladni praci s hostovanymi OS, mezi ktere patri:
+\subsubsection{Hypervizor (Virtual machine monitor - VMM)}
+VVM je program, který zajišťuje základní práci s hostovanými OS, mezi které patří
 \begin{itemize}
-\item monitorovani hostovanych OS, osetrovani vyjimek a emulace privilegovanych intrukci
-\item emulace periferii, preruseni, ktere mohou generovat, predavani dat do fyzickych zarizeni na hostujicim OS/systemu.
-\item rozdeleni zdroju mezi hostovane OS
+\item Monitorování hostovaných OS, ošetřování výjimek a emulace privilegovaných instrukcí
+\item Emulace periferií, přerušení, které mohou generovat, předávání dat do fyzických zařízení na hostujícím OS/systému
+\item Rozdělení zdrojů mezi hostované OS
 \end{itemize}
-Hypervizor muze byt implementovany jako program/proces uzivatelskeho prostoru v hostitelskem OS (QEMU), s pouzitim HW akcelerace a podpory v jadre OS (KVM) nebo jako samostatny system vyuzivajici system v jedne domene (jednom virtualizovanem prostoru vyhrazenem pro jeden hostovany OS) pro komunikaci s HW a z nej pak posila data ostatnim (XEN).\\
+Hypervizor může být implementovaný jako program/proces uživatelského prostoru v hostitelském OS (QEMU), s použitím HW akcelerace a podpory v jádře OS (KVM) nebo jako samostatný systém využívající systém v jedné doméně (jednom virtualizovaném prostoru vyhrazeném pro jeden hostovaný OS) pro komunikaci s HW a z něj pak posílá data ostatním (XEN).
 
-\textbf{Xen} (to je virtualizacni "program"/system)\\
-V paravirtualizaci (XEN) systemova volani aplikace bezici v hostovanem OS nevolaji primo hostujici kernel, ale hypervizor. Hypervizor prenasi cast sve prace na hostujici sys. misto aby provadel syscall ve virtualizovane domene. Nevyhodou je, ze hostovany sys. musi byt upraveny na miru hypervizoru.
-\section*{Klasicka architektura}
-\textit{Pozn. nasledujici text je z vetsi casti z wiki, jelikoz ve slidech neni temer nic uzitecnyho krome obrazku.}\\[10pt]
+\subsubsection{Virtualizační program/systém Xen}
+V paravirtualizaci (XEN) nevolají systémová volání aplikace běžící v hostovaném OS přímo hostující kernel, ale hypervizor. Hypervizor přenáší část své práce na hostující systém místo aby prováděl syscall ve virtualizované doméně. Nevýhodou je, že hostovaný systém musí být upravený na míru pro hypervizor.
 
-Klasickou architekturou je myslena CISC a (dle toho mala co je ve slidech) konkretne architektura m68k tj. Motorola rada 68xxx.
+\section{Klasická architektura}
+\textit{Pozn.: následující text je z větší části z wiki, jelikož ve slidech není téměř nic užitečného kromě obrázku.}
+
+Klasickou architekturou je myšlena CISC (dle toho mála co je ve slidech) a konkrétně architektura m68k tj. Motorola řada 68xxx.
 
 \begin{itemize}
-\item m68k ma jak 16-bit tak 32-bit modely
-\item big endian
-\item ma 8 datovych a 8 adresovych registru, pricemz 8. adresovy je User Stack Pointer (USP) - jeho chovani je ovlivneno nasledujicim registrem
-\item status register (= PSW - Program Status Word) je 16-bitovy. Spodnich 8-bitu je pro tzv. Condition Code Register (CCR), hornich 8 pro system (sys. byte).\\
-\newpage
-\textbf{CCR} (cisla jsou indexy PSW)
-	\begin{itemize}
-	\item[0] - carry bit - nastavi se na 1 pri prenosu z nejvice vyznam. bitu pri arit. operaci nebo kdyz je treba vypujcka pri odecitani
-	\item[1] - overflow bit - pri preteceni na 1
-	\item[2] - zero bit - pokud jsou vsechny bity operandu nebo vysledku nulove
-	\item[3] - negative bit - pokud je nejvice vyznamny bit operandu nebo vysledku roven 1 (negativni vysledek v doplnkovem kodu)
-	\item[4] - extended carry - pouziva se pri rozsireni operaci na praci s vicenasobnou presnosti, ma stejnou hodnotu jako carry
+\item m68k má jak 16-bit tak 32-bit modely
+\item Big endian
+\item Má 8 datových a 8 adresových registrů, přičemž 8. adresový je User Stack Pointer (USP) - jeho chování je ovlivněno nasledujícím registrem
+\item status register (= PSW - Program Status Word) je 16-bitový. Spodních 8-bitů je pro tzv. Condition Code Register (CCR), horních 8 pro systém (sys. byte).
+
+\subsection{CCR}
+Čísla jsou indexy PSW
+\begin{itemize}
+	\item[0] - carry bit - nastaví se na 1 při přenosu z nejvíce významného bitu při aritmetické operaci nebo když je třeba výpůjčka při odečítání
+	\item[1] - overflow bit - při přetečení na 1
+	\item[2] - zero bit - pokud jsou všechny bity operandů nebo výsledku nullové
+	\item[3] - negative bit - pokud je nejvíce významný bit operandu nebo výsledku roven 1 (negativní výsledek v doplňkovém kódu)
+	\item[4] - extended carry - používá se při rozšíření operací na práci s vícenásovnou přesností, má stejnou hodnotu jako carry
 	\end{itemize}
-	\textit{Pozn. zbyle 3 bity nejsou ve slidech primo zmineny, ale na obrazku v nich uvedenem jsou nastaveny na 0. vic jsem nehledal}\\
-\textbf{System byte}
+	\textit{Pozn.: zbylé 3 bity nejsou ve slidech přímo zmíněny, ale na obrázku v nich uvedeném jsou nastaveny na 0. Víc jsem nehledal}
+	
+\subsection{System byte}
 	\begin{itemize}
-	\item 8,9,10 - interrupt mask - definuje uroven preruseni pro kterou je prijeti zadosti blokovane
-	\item 14,15 - trace bits - pokud je nektery z nich nastaveny, tak dojde ke generovani vyjimky po provedeni kazde instrukce nebo po instrukcich ovlivnujicich tok kodu
+	\item 8,9,10 - interrupt mask - definuje úroveň přerušení, pro kterou je přijetí žádosti blokované
+	\item 14,15 - trace bits - pokud je některý z nich nastavený, tak dojde ke generování výjimky po provedená každé instrukce nebo po instrukcích ovlivňujících tok kódu
+	\item 11 a 12 - jsou 0
 	\end{itemize}
-	11. a 12. jsou 0
 \end{itemize}
 
+\section{Systemové a IO sběrnice}
+\textit{Pozn.: Ve slidech je vše ukazováno na příkladu PC, takže nedostatek obecnosti je záměrný a není to chyba}
 
-\section*{Systemove a IO sbernice}
-\textit{Pozn. Ve slidech je vse ukazovano na prikladu PC, takze nedostatek obecnosti je zamerny a neni to chyba.}\\
-
-\textbf{sbernice}(bus)
+\subsection{Dvoubodové spojení (point-to-point)}
 \begin{itemize}
-\item spousta dratu, na ktery se pripojuji zarizeni v ramci pocitace, zjednodussuje komunikaci oproti point-to-point spojeni vsech komponent
-\item v jednom pocitaci neni typicky jen jedna sbernice, ale hned nekolik - procesorova, systemova, lokalni a IO sbernice
-\item podle typu "obsahu", ktery obsluhuje existuji 3 typy - adresova, datova, ridici. Muze byt i kombinovana
+\item Při malém počtu zařízení je nejjednodušší, při větším ale značně komplikované
+\item Poskytuje vyšší výkon než sběrnice, jelikož se žádné zařízení nemusí o své připojení dělit s jiným
 \end{itemize}
-Nejblize CPU jsou Front-side Bus (FSB) a Back-side Bus (BSB). FSB je pripojeni na North Bridge - systemovy cip, ktery obsluhuje pameti a dnes jiz prehistoricke AGP (na to se pripojovalo GPU). V soucasny dobe je North b. vetsinou jiz soucasti CPU (AMD a Intel). BSB jsou zadni vratka do pameti pro L2 cache, ktera z ni cte primo (BSB je na cteni z pameti zoptimalizovana, a tak pomerne rychla).\\
-S North b. je spojeny South bridge, na ktery se uz pripojuji ostatni sbernice a zarizeni (PCI, PCIe, USB etc.).\\
 
-\textbf{dvoubodove spojeni} (point-to-point)
+\subsection{Sběrnice (bus)}
 \begin{itemize}
-\item pri malem poctu zarizeni je nejjednodussi, pri vetsim ale znacne komplikovane
-\item poskytuje vyssi vykon nez sbernice, jelikoz se zadne zarizeni nemusi o sve spojeni delit s jinym
+\item Spousta drátů, na které se připojují zařízení v rámci počítače, zjednodušuje komunikaci oproti point-to-point spojení všech komponent
+\item V jednom počítači není typicky jen jedna sběrnice, ale hned několik - procesorová, systémová, lokální a IO sběrnice
+\item Podle typu ``obsahu'', který obsluhuje existují 3 typy - adresová, datová, řídící. Může být i kombinovaná
+\end{itemize}
+Nejblíže CPU jsou Fronst-Side-Bus (FSB) a Back Side Bus (BSB). FSB je připojení na North Bridge - systémový čip, který obsluhuje paměti a dnes již prehistorické AGP (na to se připojovalo GPU). V současné době je North Bridge většinou již součástí CPU (AMD a Intel). BSB jsou zadní vrátka do paměti pro L2 cache, která z ní čte přímo (BSB je na čtení z paměti zoptimalizovaná, a tak poměrně rychlá).
+
+S North Bridge je spojený South Bridge, na který se připojují ostatní sběrnice a zařízení (PCI, PCIe, USB etc.).
+
+\subsection{Multiplexovaná sběrnice (time division multiplexing)}
+Sběrnice, kde jsou data nebo adresy větší velikosti než jsou vodiče schopné přenést, a tak se dělí na části. Příklad: sběrnice přenese najednou 16-bit, ale naše data mají 32-bit, proto se data rozdělí a pošlou na dvakrát. Jsou také případy, kdy se posílají adresy i data po stejných drátech.
+
+\subsection{PCI}
+\begin{itemize}
+\item PCI je sběrnice z dob, kdy dinosauři chodili po Zemi
+\item Komunikace je paralelní. To mimo jiné vyžaduje, aby byl přítomen arbitr sběrnice - komponenta určující, které z PCI zařízení posílá po sběrnici data (a adresy) v daný okamžik
+\item Vždy, když chce libovolné PCI zařízení posílat data po sběrnici, musí nejprve požádat arbitra o přidělení práva
+\item Každého přenosu/transakce se účastní 2 zařízení - initiator (Bus Master) a target. Arbitr také řeší případ více Bus masterů (multimaster sběrnice)
+\item Přenos po sběrnici má 2 fáze - adresovou a datovou
+\item Zařízení na sběrnici mají společný 4-bit přerušovací podsystém (narozdíl od ostatních drátů nejsou paralelní)
+\item Sběrnice je multiplexovaná, adresy i data se posílají přes stejné piny PCI zařízení
 \end{itemize}
 
-\textbf{Multiplexovana sbernice}(time division multiplexing) - sbernice, kde jsou data nebo adresy vetsi velikosti nez jsou vodice schopne prenest, a tak se deli na casti. Priklad: sbernice prenese najednou 16-bit, ale nase data maji 32-bit $\rightarrow$ rozdeli se a poslou na dvakrat. Jsou take pripady, kdy se posilaji adresy i data po stejnych dratech.\\
-
-\textbf{PCI}\\
-- PCI je sbernice z dob kdy dinosauri chodili po Zemi\\
-- komunikace je paralelni. To mimo jine vyzaduje, aby byl pritomen arbitr sbernice - komponenta urcujici, ktere z PCI zarizeni posila po sbernici data (a adresy) v dany okamzik.\\
-- vzdy, kdyz chce lib. PCI zarizeni posilat data po sbernici musi nejprve pozadat arbitra o prideleni prava\\
-- kazdeho prenosu/transakce se ucasni 2 zarizeni - initiator(Bus Master) a target. Arbitr take resi pripad vice bus masteru (multimaster sbernice)\\
-- prenos po sbernici ma 2 faze - adresovou a datovou\\
-- zarizeni na sbernici maji spolecny 4-bit prerusovaci podsystem (narozdil od ostatnich dratu nejsou paralelni)\\
-- sbernice je multiplexovana, adresy i data se posilaji pres stejne piny PCI zarizeni\\
-
-\textbf{PCI vs. PCI-Express (PCIe)}\\
-- PCIe ma narozdil od PCI prepinac, na ktere jsou pripojena jednotliva PCIe zarizeni. Prepinac samostny je je spojeny se sbernici. Komunikace je timpadem, narozdil od PCI, seriova\\
-- rychlost PCIe zarizeni se udava poctem linek (x1, x16 atd.). Kazda linka se sklada z jednoho nebo vice proudu a ten je tvoren 2 vodici (jeden v kazdem smeru)\\
-- komunikace je full duplex - 1 bit za takt v obou smerech
+\subsection{PCI vs. PCI-Express (PCIe)}
+\begin{itemize}
+\item PCIe má narozdíl od PCI přepínač, na který jsou připojena jednotlivá PCIe zařízení. Přepínač samotný je spojený se sběrnicí. Komunikace je tím pádem, na rozdíl od PCI, sériová
+\item Rychlost PCIe zařízení se udává počtem linek (x1, x16 atd.). Každá linka se skládá z jednoho nebo více proudů a každý proud je tvořen 2 vodiči (jeden v každém směru)
+\item Komunikace je full duplex - 1 bit za takt v obou směrech
+\end{itemize}
 
 
 \end{document}
