@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass scrreprt
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -29,15 +31,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -103,11 +114,15 @@ Slovo nad abecedou
 \end_layout
 
 \begin_layout Standard
-Pro danou abecedu Σ 
+Pro danou abecedu Σ
 \emph on
-slovo nad
+ 
 \emph default
- Σ je libovolná konečná posloupnost prvků abecedy Σ.
+je
+\emph on
+ slovo nad
+\emph default
+ Σ libovolná konečná posloupnost prvků abecedy Σ.
  Tedy např.
  pro Σ = {a, b} jsou 
 \emph on
@@ -202,6 +217,10 @@ zřetězení
 \end_inset
 
 , pak 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -336,11 +355,24 @@ Pro libovolná slova
 \end_layout
 
 \begin_layout Standard
-Je-li slovo nad abecedou 
+Je-li 
+\begin_inset Formula $u$
+\end_inset
+
+ slovo nad abecedou 
 \begin_inset Formula $\Sigma$
 \end_inset
 
-, pak 
+, pak můžeme opakování slova 
+\begin_inset Formula $n$
+\end_inset
+
+-krát zapsat zjednodušeně jako 
+\begin_inset Formula $uuuu...u=u^{n}$
+\end_inset
+
+.
+ Přesněji:
 \end_layout
 
 \begin_layout Standard
@@ -485,7 +517,7 @@ Deterministické konečné automaty
 Použití
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Použití"
+name "subsec:Použití"
 
 \end_inset
 
@@ -499,7 +531,7 @@ Konečné automaty se používají v různých oborech.
 \end_layout
 
 \begin_layout Standard
-Zhruba řečeno konečný automat obsahuje konečnou množinu stavů 
+Zhruba řečeno, konečný automat obsahuje konečnou množinu stavů 
 \emph on
 Q
 \emph default
@@ -569,6 +601,10 @@ a
 K
 \emph default
  znamená kávu, číslo udává vrácené peníze).
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -576,11 +612,11 @@ K
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -971,275 +1007,6 @@ s
 \end_layout
 
 \begin_layout Subsection
-Obecně rozlišujeme čtuři typy automatů
-\end_layout
-
-\begin_layout Standard
-Mealyho automat, Mooreův automat, akceptor a automat bez výstupu.
- Dále se budeme zabývat hlavně tzv.
- akceptory.
-\end_layout
-
-\begin_layout Subsection
-Mealyho automat
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Mealyho-automat"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Mealyho automat je šestice (
-\emph on
-Q
-\emph default
-, Σ, 
-\emph on
-Y
-\emph default
-, 
-\begin_inset Formula $\delta$
-\end_inset
-
-, 
-\begin_inset Formula $q_{0}$
-\end_inset
-
-, 
-\begin_inset Formula $\lambda$
-\end_inset
-
-).
- kde 
-\emph on
-Q
-\emph default
-, Σ, 
-\emph on
-Y
-\emph default
- a 
-\begin_inset Formula $q_{0}$
-\end_inset
-
- mají stejný význam jako v 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Použití"
-
-\end_inset
-
-, přechodová funkce je zobrazení 
-\begin_inset Formula $\delta$
-\end_inset
-
-: 
-\emph on
-Q
-\emph default
- × Σ 
-\begin_inset Formula $\rightarrow$
-\end_inset
-
- 
-\emph on
-Q
-\emph default
- a výstupní funkce je zobrazení 
-\begin_inset Formula $\lambda$
-\end_inset
-
-: 
-\emph on
-Q
-\emph default
- × Σ 
-\begin_inset Formula $\rightarrow$
-\end_inset
-
- 
-\emph on
-Y
-\emph default
- .
-\end_layout
-
-\begin_layout Subsection
-Moorův automat
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Moorův-automat"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Moorův automat je šestice (
-\emph on
-Q
-\emph default
-, Σ,
-\emph on
- Y
-\emph default
-, 
-\begin_inset Formula $\delta$
-\end_inset
-
-, 
-\begin_inset Formula $q_{0}$
-\end_inset
-
-, 
-\begin_inset Formula $\beta$
-\end_inset
-
-).
- kde 
-\emph on
-Q
-\emph default
-, Σ, 
-\emph on
-Y
-\emph default
-, 
-\begin_inset Formula $\delta$
-\end_inset
-
- a 
-\begin_inset Formula $q_{0}$
-\end_inset
-
- mají stejný význam jako v 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Mealyho-automat"
-
-\end_inset
-
-, 
-\begin_inset Formula $\beta$
-\end_inset
-
- je zobrazení 
-\begin_inset Formula $\beta$
-\end_inset
-
-: 
-\emph on
-Q
-\emph default
- 
-\begin_inset Formula $\rightarrow$
-\end_inset
-
- 
-\emph on
-Y
-\emph default
- (říká se mu značkovací funkce).
-\end_layout
-
-\begin_layout Subsection
-Akceptor, též DFA
-\end_layout
-
-\begin_layout Standard
-DFA je pětice (
-\emph on
-Q
-\emph default
-, Σ, 
-\begin_inset Formula $\delta$
-\end_inset
-
-, 
-\begin_inset Formula $q_{0}$
-\end_inset
-
-,
-\emph on
- F
-\emph default
-), kde 
-\emph on
-Q
-\emph default
-, Σ, 
-\begin_inset Formula $\delta$
-\end_inset
-
- a 
-\begin_inset Formula $q_{0}$
-\end_inset
-
- mají stejný význam jako v 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Moorův-automat"
-
-\end_inset
-
- a 
-\emph on
-F
-\emph default
- 
-\begin_inset Formula $\subseteq$
-\end_inset
-
- 
-\emph on
-Q
-\emph default
- je množina koncových (též přijímajících) stavů.
-\end_layout
-
-\begin_layout Standard
-Jedná se vlastně o Mooreův automat, kde množina výstupních symbolů má dva
- prvky, totiž 
-\emph on
-Y
-\emph default
- = {0, 1}, a proto značkovací funkci 
-\begin_inset Formula $\beta$
-\end_inset
-
- nahrazujeme množinou těch stavů, kterým značkovací funkce přiřazuje 1.
-\end_layout
-
-\begin_layout Subsection
-Automat bez výstupu
-\end_layout
-
-\begin_layout Standard
-Automat bez výstupu je „společnou částí
-\begin_inset Quotes erd
-\end_inset
-
- všech výše uvedených automatů; tj.
- jedná se o (
-\emph on
-Q
-\emph default
-, Σ, 
-\begin_inset Formula $\delta$
-\end_inset
-
-, 
-\begin_inset Formula $q_{0}$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Subsection
 Stavový diagram
 \end_layout
 
@@ -1336,6 +1103,287 @@ F
 \end_inset
 
  je označován šipkou mířící do něj.
+\end_layout
+
+\begin_layout Subsection
+Obecně rozlišujeme čtuři typy automatů
+\end_layout
+
+\begin_layout Standard
+Mealyho automat, Mooreův automat, akceptor a automat bez výstupu.
+ Dále se budeme zabývat hlavně tzv.
+ akceptory.
+\end_layout
+
+\begin_layout Subsection
+Mealyho automat
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Mealyho-automat"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mealyho automat je šestice (
+\emph on
+Q
+\emph default
+, Σ, 
+\emph on
+Y
+\emph default
+, 
+\begin_inset Formula $\delta$
+\end_inset
+
+, 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+).
+ kde 
+\emph on
+Q
+\emph default
+, Σ, 
+\emph on
+Y
+\emph default
+ a 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ mají stejný význam jako v 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Použití"
+
+\end_inset
+
+, přechodová funkce je zobrazení 
+\begin_inset Formula $\delta$
+\end_inset
+
+: 
+\emph on
+Q
+\emph default
+ × Σ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\emph on
+Q
+\emph default
+ a výstupní funkce je zobrazení 
+\begin_inset Formula $\lambda$
+\end_inset
+
+: 
+\emph on
+Q
+\emph default
+ × Σ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\emph on
+Y
+\emph default
+ .
+\end_layout
+
+\begin_layout Standard
+Mealyho automat vypisuje během své činnosti výstupní funkci.
+ Výstup závisí na aktuálním stavu a na přijatém znaku.
+ Ve stavovém diagramu se výstupní hodnota píše nad každou hranu.
+\end_layout
+
+\begin_layout Subsection
+Moorův automat
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Moorův-automat"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Moorův automat je šestice (
+\emph on
+Q
+\emph default
+, Σ,
+\emph on
+ Y
+\emph default
+, 
+\begin_inset Formula $\delta$
+\end_inset
+
+, 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+).
+ kde 
+\emph on
+Q
+\emph default
+, Σ, 
+\emph on
+Y
+\emph default
+, 
+\begin_inset Formula $\delta$
+\end_inset
+
+ a 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ mají stejný význam jako v 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Mealyho-automat"
+
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+ je zobrazení 
+\begin_inset Formula $\beta$
+\end_inset
+
+: 
+\emph on
+Q
+\emph default
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\emph on
+Y
+\emph default
+ (říká se mu značkovací funkce).
+\end_layout
+
+\begin_layout Standard
+Moorův automat taky vypisuje během své činnosti značkovací funkci.
+ Výstup závisí pouze na aktuálním stavu.
+ Ve stavovém diagramu se výstupní hodnota píše do vrcholů.
+\end_layout
+
+\begin_layout Subsection
+Akceptor, též DFA
+\end_layout
+
+\begin_layout Standard
+DFA (Deterministic finite automaton) je pětice (
+\emph on
+Q
+\emph default
+, Σ, 
+\begin_inset Formula $\delta$
+\end_inset
+
+, 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+,
+\emph on
+ F
+\emph default
+), kde 
+\emph on
+Q
+\emph default
+, Σ, 
+\begin_inset Formula $\delta$
+\end_inset
+
+ a 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ mají stejný význam jako v 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Moorův-automat"
+
+\end_inset
+
+ a 
+\emph on
+F
+\emph default
+ 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ 
+\emph on
+Q
+\emph default
+ je množina koncových (též přijímajících) stavů.
+\end_layout
+
+\begin_layout Standard
+Jedná se vlastně o Mooreův automat, kde množina výstupních symbolů má dva
+ prvky, totiž 
+\emph on
+Y
+\emph default
+ = {0, 1}, a proto značkovací funkci 
+\begin_inset Formula $\beta$
+\end_inset
+
+ nahrazujeme množinou těch stavů, kterým značkovací funkce přiřazuje 1.
+\end_layout
+
+\begin_layout Subsection
+Automat bez výstupu
+\end_layout
+
+\begin_layout Standard
+Automat bez výstupu je „společnou částí
+\begin_inset Quotes erd
+\end_inset
+
+ všech výše uvedených automatů; tj.
+ jedná se o (
+\emph on
+Q
+\emph default
+, Σ, 
+\begin_inset Formula $\delta$
+\end_inset
+
+, 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -1514,7 +1562,7 @@ Reg
 Pumping lemma pro regulární jazyky
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Pumping-lemma-pro"
+name "subsec:Pumping-lemma-pro"
 
 \end_inset
 
@@ -1701,7 +1749,7 @@ n
  s vlastností z 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Pumping-lemma-pro"
+reference "subsec:Pumping-lemma-pro"
 
 \end_inset
 
@@ -2365,6 +2413,10 @@ Je dán DFA
 \end_inset
 
  následující tabulkou:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2372,9 +2424,9 @@ Je dán DFA
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="3">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -2716,6 +2768,10 @@ Automat
 \end_inset
 
  je dán tabulkou:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2723,9 +2779,9 @@ Automat
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="3">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -3110,7 +3166,7 @@ Rozklad odpovídající ekvivalenci
 \begin_layout Standard
 \begin_inset Formula 
 \[
-A=\left\{ 1\right\} ,\; O=\left\{ 2,4,7\right\} ,\; F=\left\{ 3,5,6\right\} .
+A=\left\{ 1\right\} ,\;O=\left\{ 2,4,7\right\} ,\;F=\left\{ 3,5,6\right\} .
 \]
 
 \end_inset
@@ -3120,6 +3176,10 @@ A=\left\{ 1\right\} ,\; O=\left\{ 2,4,7\right\} ,\; F=\left\{ 3,5,6\right\} .
 
 \begin_layout Standard
 Výpočet zahrneme do tabulky
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3127,13 +3187,13 @@ Výpočet zahrneme do tabulky
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="7">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -3684,6 +3744,10 @@ Analogicky postupujeme k vytvoření ekvivalence
 
 .
  Výpočet již zkrátíme jen do tabulky.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3691,16 +3755,16 @@ Analogicky postupujeme k vytvoření ekvivalence
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="10">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -4501,6 +4565,10 @@ F
 \end_inset
 
  je dán tabulkou
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4508,9 +4576,9 @@ F
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="3">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
