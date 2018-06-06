@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass scrreprt
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -29,15 +31,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -87,8 +98,9 @@ Regulární jazyky
 \end_layout
 
 \begin_layout Standard
-Regulární jazyky viz kapitola 21 Deterministický konečný automat, jazyk
- přijímaný konečným automatem.
+Jazyk je regulární právě tehdy, když existuje deterministický konečný automat,
+ který ho přijímá.
+ Více viz otázka 21.
 \end_layout
 
 \begin_layout Subsection
@@ -108,7 +120,7 @@ Přesněji, jestliže
 \begin_inset Formula $L_{2}$
 \end_inset
 
- jsou regulární jazyky, pak také 
+ jsou regulární jazyky, pak 
 \begin_inset Formula $L_{1}\cup L_{2}$
 \end_inset
 
@@ -787,11 +799,14 @@ Poznámka
  Při praktickém použití regulárních výrazů v computer science se používá
  jiné značení, a navíc se zavádí rozšířené regulární výrazy, které pak už
  nepopisují jen regulární jazyky.
- Víc o těchto regulárních výrazech najdete na webové stránce Pavla Satrapy
+ Víc o těchto regulárních výrazech najdete na webové stránce od Pavla Satrapy
  
-\emph on
-http://www.nti.tul.cz/ satrapa/docs/regvyr/
-\emph default
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.cs.vsb.cz/durakova/vyuka/zpp/all.html"
+
+\end_inset
+
 .
 \end_layout
 
@@ -830,11 +845,7 @@ q
 \series default
  = 
 \series bold
-p
-\series default
- + 
-\series bold
-q
+q + p
 \series default
 ,
 \end_layout
@@ -1353,7 +1364,7 @@ Příklad
 \end_inset
 
  nad abecedou 
-\begin_inset Formula $\Gamma=\left\{ a,b\right\} $
+\begin_inset Formula $\Gamma=\left\{ 0,1\right\} $
 \end_inset
 
  popsaný regulárním výrazem 
@@ -1405,6 +1416,15 @@ Je dán jazyk
 \end_inset
 
 .
+ Slovo 
+\begin_inset Formula $w^{R}$
+\end_inset
+
+ je slovo 
+\begin_inset Formula $w$
+\end_inset
+
+ pozpátku.
  Pak jazyk 
 \begin_inset Formula $L^{R}$
 \end_inset
