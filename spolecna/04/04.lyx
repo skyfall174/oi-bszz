@@ -658,11 +658,7 @@ Master theorem
 \end_layout
 
 \begin_layout Itemize
-= algoritmus pro určování asymptotické složitosti algoritmů 
-\end_layout
-
-\begin_layout Itemize
-zejména 
+Algoritmus pro určování asymptotické složitosti algoritmů (zejména 
 \begin_inset Quotes eld
 \end_inset
 
@@ -670,13 +666,76 @@ rozděl a panuj
 \begin_inset Quotes erd
 \end_inset
 
- 
-\begin_inset Formula $f(n)=a·f(\frac{n}{b})+g(n).$
+ a rekurze)
+\end_layout
+
+\begin_layout Itemize
+Při volání funkce nad 
+\begin_inset Formula $n$
+\end_inset
+
+ prvky se problém rozdělí na 
+\begin_inset Formula $a$
+\end_inset
+
+ podproblémů o velikosti 
+\begin_inset Formula $n/b$
+\end_inset
+
+, které se řeší rekurzivně tou samou funkcí
+\end_layout
+
+\begin_layout Itemize
+Řešení se získá jako sloučení řešení z podproblémů, a slučování trvá 
+\begin_inset Formula $cn^{d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Složitost funkce 
+\begin_inset Formula $f$
+\end_inset
+
+ pak lze vyjádřit jako 
+\begin_inset Formula $f(n)=a·f(\frac{n}{b})+cn^{d}$
 \end_inset
 
 
 \end_layout
 
+\begin_layout Itemize
+Z toho plyne několik podmínek pro konstanty:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $a$
+\end_inset
+
+ musí být alespoň jedna, tedy úloha má alespoň jeden podproblém
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $b$
+\end_inset
+
+ musí být alespoň dvě, tedy data se postupně zmenšují
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $c$
+\end_inset
+
+ je kladné a 
+\begin_inset Formula $d$
+\end_inset
+
+ je nezáporné, tedy čas sloučení podproblémů je kladný
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 
 \series bold
